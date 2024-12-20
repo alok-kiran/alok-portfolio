@@ -1,6 +1,7 @@
 import Header from "./sections/header";
 import Hero from "./sections/heroes";
 import Projects from "./sections/projects";
+import TapeSection from "./sections/tapesection";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Header />
       <Hero />
       <Projects />
+      <TapeSection />
     </div>
   );
 }
