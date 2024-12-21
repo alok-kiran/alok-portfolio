@@ -81,7 +81,7 @@ function About() {
                       <p>Explore the technologies and tools I use to craft exceptional digital experiences</p>
                   </div>
                  <div>
-                        {toolBoxItems.map((item, index) => (
+                        {toolBoxItems.map((item) => (
                             <div key={item.title}>
                                     <TechIcon component={item.iconType} />
                                     <span>{item.description}</span>
