@@ -1,3 +1,4 @@
+import About from "./sections/about";
 import Header from "./sections/header";
 import Hero from "./sections/heroes";
 import Projects from "./sections/projects";
@@ -12,6 +13,7 @@ export default function Home() {
       <Projects />
       <TapeSection />
       <Testimonials />
+      <About />
     </div>
   );
 }
