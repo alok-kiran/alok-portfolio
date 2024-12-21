@@ -11,39 +11,27 @@ import Card from '../components/Card';
 
 const portfolioProjects = [
     {
-        company: "Acme Corp",
+        company: "Design Sphere",
         year: "2022",
-        title: "Dark Saas Landing Page",
+        title: "Graphic Design SaaS Tool",
         results: [
             { title: "Enhanced user experience by 40%" },
             { title: "Improved site speed by 50%" },
             { title: "Increased mobile traffic by 35%" },
         ],
-        link: "https://youtu.be/4k7IdSLxh6w",
+        link: "https://graphic-master.vercel.app/",
         image: darkSaasLandingPage,
     },
     {
-        company: "Innovative Co",
+        company: "Sprintly",
         year: "2021",
-        title: "Light Saas Landing Page",
+        title: "Project Management SaaS Tool",
         results: [
             { title: "Boosted sales by 20%" },
             { title: "Expanded customer reach by 35%" },
             { title: "Increased brand awareness by 15%" },
         ],
-        link: "https://youtu.be/7hi5zwO75yc",
-        image: lightSaasLandingPage,
-    },
-    {
-        company: "Quantum Dynamics",
-        year: "2023",
-        title: "AI Startup Landing Page",
-        results: [
-            { title: "Enhanced user experience by 40%" },
-            { title: "Improved site speed by 50%" },
-            { title: "Increased mobile traffic by 35%" },
-        ],
-        link: "https://youtu.be/Z7I5uSRHMHg",
+        link: "https://trell-master.vercel.app/",
         image: aiStartupLandingPage,
     },
 ];
