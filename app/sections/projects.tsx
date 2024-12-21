@@ -6,7 +6,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import CheckIcon from "@/assets/icons/check-circle.svg";
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
-import GrainImage from "@/assets/images/grain.jpg";
 import SectionHeader from '../components/SectionHeader';
 import Card from '../components/Card';
 
