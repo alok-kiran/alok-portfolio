@@ -30,7 +30,7 @@ function Footer() {
       <div className=' container'>
               <div className=' border-t border-white/15 py-6 text-sm flex flex-col items-center gap-8 md:flex-row md:justify-between'>
                   <div className=' text-white/40'>
-                      &copy; 2025 All rights reserved. Designed by <a href="https://www.linkedin.com/in/alokkiran/">Alok Kiran</a>
+                      &copy; 2025 All rights reserved. made with ❤️ by <Link href="https://www.linkedin.com/in/alokkiran/" target='_blank'><span className=' text-white font-semibold'>Alok Kiran</span></Link>
                   </div>
                   <nav className=' flex flex-row items-center gap-8 '>
                       {
