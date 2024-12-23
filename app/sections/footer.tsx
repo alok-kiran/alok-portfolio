@@ -29,10 +29,16 @@ function Footer() {
         </div>
       <div className=' container'>
               <div className=' border-t border-white/15 py-6 text-sm flex flex-col items-center gap-8 md:flex-row md:justify-between'>
-                  <div className=' text-white/40'>
-                      &copy; 2025 All rights reserved. made with <span className=' text-red-950'>❤️</span> by <Link href="https://www.linkedin.com/in/alokkiran/" target='_blank'><span className=' text-white font-semibold'>Alok Kiran</span></Link>
+                  <div className=' text-white/40 flex flex-col md:flex-row items-left gap-3 '>
+                  <div>
+                  &copy; 2025 All rights reserved.
                   </div>
-                  <nav className=' flex flex-row items-center gap-8 '>
+                  <div>
+                    Made with <span className=' text-red-950'>❤️</span> by <Link href="https://www.linkedin.com/in/alokkiran/" target='_blank'><span className=' text-white font-semibold'>Alok Kiran</span></Link>
+                  </div>
+                     
+                  </div>
+                  <nav className=' flex flex-row items-center md:gap-8 gap-3'>
                       {
                           footerLinks.map((item) => {
                               return (

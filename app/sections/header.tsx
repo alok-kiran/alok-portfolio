@@ -57,7 +57,7 @@ function Header() {
   }, []);
 
   return (
-    <div className="flex justify-center items-center fixed top-3 w-full z-50">
+    <div className="justify-center items-center fixed top-3 w-full z-50 hidden md:flex">
       <nav className={twMerge("flex gap-1 p-0.5 border border-white/15 rounded-full bg-white/10 backdrop:blur")}>
         <a
           href="#home"
