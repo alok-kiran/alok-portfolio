@@ -1,11 +1,11 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { twMerge } from "tailwind-merge";
 
 function Header() {
   const [active, setActive] = React.useState("#home");
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleClick = (e: any, sectionId: string) => {
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
     const section = document.querySelector(sectionId);
     setActive(sectionId);
@@ -16,6 +16,45 @@ function Header() {
       });
     }
   };
+
+  const handleScroll = () => {
+    const sections = ["#home", "#projects", "#testimonials", "#about", "#contact"];
+    const scrollPosition = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.body.scrollHeight;
+
+    if (scrollPosition === 0) {
+      setActive("#home");
+      return;
+    }
+
+    if (scrollPosition + windowHeight >= documentHeight) {
+      setActive("#contact");
+      return;
+    }
+
+    for (const sectionId of sections) {
+      const section = document.querySelector(sectionId);
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= windowHeight / 2 && rect.bottom >= windowHeight / 2) {
+          setActive(sectionId);
+          break;
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="flex justify-center items-center fixed top-3 w-full z-50">
@@ -29,10 +68,17 @@ function Header() {
         </a>
         <a
           href="#projects"
-          className= {twMerge("nav-item hover:bg-white/70 hover:text-gray-900", active === "#projects" && "nav-item-active")}
+          className={twMerge("nav-item hover:bg-white/70 hover:text-gray-900", active === "#projects" && "nav-item-active")}
           onClick={(e) => handleClick(e, "#projects")}
         >
           Projects
+        </a>
+        <a
+          href="#testimonials"
+          className={twMerge("nav-item hover:bg-white/70 hover:text-gray-900", active === "#testimonials" && "nav-item-active")}
+          onClick={(e) => handleClick(e, "#testimonials")}
+        >
+          Testimonials
         </a>
         <a
           href="#about"

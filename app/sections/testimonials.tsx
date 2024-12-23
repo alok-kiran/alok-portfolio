@@ -44,7 +44,7 @@ const testimonials = [
 
 function Testimonials() {
     return (
-        <div className=' py-16 lg:py-24'>
+        <div className=' py-16 lg:py-24' id="testimonials">
             <div className=' container'>
                 <SectionHeader
                     title='Happy Clients'
