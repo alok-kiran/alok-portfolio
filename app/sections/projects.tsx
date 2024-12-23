@@ -39,7 +39,7 @@ const portfolioProjects = [
 
 function Projects() {
     return (
-        <section className=' pb-16 lg:py-24' >
+        <section className=' pb-16 lg:py-24' id="projects">
             <div className=' container'>
                 <SectionHeader
                     title='Real-world Results'

@@ -117,7 +117,7 @@ const hobbies = [
 function About() {
     const constraintsRef = React.useRef(null);
     return (
-        <div className='py-20 lg:py-28'>
+        <div className='py-20 lg:py-28' id="about">
             <div className=' container'>
                 <SectionHeader title="About me" subtitle='A Glimpse Into my World' description='Learn more about who I am, What I do, and what inspires me.' />
                 <div className=' mt-20 flex flex-col gap-8'>
