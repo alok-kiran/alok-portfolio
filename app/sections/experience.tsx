@@ -6,6 +6,7 @@ import ComoLogo from '@/assets/images/como_logo.png';
 import Link from 'next/link';
 import { useScroll, motion } from 'framer-motion';
 import LiIcon from '../components/LiIcon';
+import StarIcon from '@/assets/icons/star.svg';
 
 const EXPERIENCE = [
     {
@@ -59,7 +60,7 @@ const Details = ({ title, company, year, location, results, companyLink }: {
                 <span className=' caption-top font-medium text-white/30'>{year} | {location}</span>
                 <ul className=' font-medium w-full'>
                     {results.map((result) => (
-                        <li key={result.title} className=' text-xl/2 my-2'><span className=' size-2 text-emerald-300 mr-2'>✅</span>{result.title}</li>
+                        <li key={result.title} className=' text-xl/2 my-2 flex flex-row justify-start items-top'><span><StarIcon className="size-6 text-emerald-300 mr-2" /></span>{result.title}</li>
                     ))}
                 </ul>
             </motion.div>

@@ -6,6 +6,7 @@ import Image from 'next/image';
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import SectionHeader from '../components/SectionHeader';
 import Card from '../components/Card';
+import StarIcon from '@/assets/icons/star.svg';
 
 const portfolioProjects = [
     {
@@ -63,7 +64,7 @@ function Projects() {
                                     <hr className=' border-t-2 border-white/5 mt-4 md:mt-5' />
                                     <ul className=' flex flex-col gap-4 mt-4 md:mt-5'>
                                         {project.results.map((result) => (
-                                            <li className=' flex gap-2 text-sm md:text-base text-white/50' key={result.title}>✅ {result.title}</li>
+                                            <li className=' flex gap-2 text-sm md:text-base text-white/50' key={result.title}><span><StarIcon className="size-6 text-emerald-300" /></span> {result.title}</li>
                                         ))}
                                     </ul>
                                     <Link href={project.link} target='_blank'>
