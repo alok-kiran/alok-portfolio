@@ -3,7 +3,6 @@ import darkSaasLandingPage from "@/assets/images/dark-saas-landing-page.png";
 import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
 import Link from 'next/link';
 import Image from 'next/image';
-import CheckIcon from "@/assets/icons/check-circle.svg";
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import SectionHeader from '../components/SectionHeader';
 import Card from '../components/Card';
@@ -11,24 +10,26 @@ import Card from '../components/Card';
 const portfolioProjects = [
     {
         company: "Design Sphere",
-        year: "2022",
+        year: "2024",
         title: "Graphic Design SaaS Tool",
         results: [
-            { title: "Enhanced user experience by 40%" },
-            { title: "Improved site speed by 50%" },
-            { title: "Increased mobile traffic by 35%" },
+            { title: "Developed a Canva-like SaaS platform with drag-and-drop design features for shapes, images, and text." },
+            { title: "Designed intuitive UI with React.js and Tailwind CSS, integrating Google and GitHub login for user convenience." },
+            { title: "Built with Next.js, Node.js, and PostgreSQL for scalable, secure performance and progress tracking." },
+            { title: "Solved the need for accessible, user-friendly tools for professional-quality design creation." },
         ],
         link: "https://graphic-master.vercel.app/",
         image: darkSaasLandingPage,
     },
     {
         company: "Sprintly",
-        year: "2021",
+        year: "2024",
         title: "Project Management SaaS Tool",
         results: [
-            { title: "Boosted sales by 20%" },
-            { title: "Expanded customer reach by 35%" },
-            { title: "Increased brand awareness by 15%" },
+            { title: "Created a Trello-like project management platform with boards, lists, and drag-and-drop functionality." },
+            { title: "Designed collaborative features, including user invitations and real-time activity audits for transparency." },
+            { title: "Built with Next.js, Node.js, Tailwind CSS, and MySQL for scalable and efficient performance." },
+            { title: "Solved the need for streamlined project organization and team collaboration in a single platform." },
         ],
         link: "https://trell-master.vercel.app/",
         image: aiStartupLandingPage,
@@ -49,7 +50,7 @@ function Projects() {
                 <div className=' flex flex-col mt-10 md:mt-20 gap-20'>
                     {portfolioProjects?.map((project, index) => (
                         <Card key={project.title} className='lg:pt-16 lg:px-20 px-8 pt-8 md:pt-12 md:px-10 pb-0 sticky' style={{
-                            top: `calc(64px + ${index*40}px)`
+                            top: `calc(64px + ${index*60}px)`
                         }}>
                         <div className='lg:grid lg:grid-cols-2 lg:gap-16'>
                                 <div className=' lg:pb-16'>
@@ -62,7 +63,7 @@ function Projects() {
                                     <hr className=' border-t-2 border-white/5 mt-4 md:mt-5' />
                                     <ul className=' flex flex-col gap-4 mt-4 md:mt-5'>
                                         {project.results.map((result) => (
-                                            <li className=' flex gap-2 text-sm md:text-base text-white/50' key={result.title}><CheckIcon className="size-5 md:size-6 md:mt-0.3" /><span>{result.title}</span></li>
+                                            <li className=' flex gap-2 text-sm md:text-base text-white/50' key={result.title}>✅ {result.title}</li>
                                         ))}
                                     </ul>
                                     <Link href={project.link} target='_blank'>

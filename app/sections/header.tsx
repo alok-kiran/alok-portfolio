@@ -18,7 +18,7 @@ function Header() {
   };
 
   const handleScroll = () => {
-    const sections = ["#home", "#projects", "#testimonials", "#about", "#contact"];
+    const sections = ["#home", "#projects", "#experience", "#about", "#contact"];
     const scrollPosition = window.scrollY;
     const windowHeight = window.innerHeight;
     const documentHeight = document.body.scrollHeight;
@@ -74,11 +74,11 @@ function Header() {
           Projects
         </a>
         <a
-          href="#testimonials"
-          className={twMerge("nav-item hover:bg-white/70 hover:text-gray-900", active === "#testimonials" && "nav-item-active")}
-          onClick={(e) => handleClick(e, "#testimonials")}
+          href="#experience"
+          className={twMerge("nav-item hover:bg-white/70 hover:text-gray-900", active === "#experience" && "nav-item-active")}
+          onClick={(e) => handleClick(e, "#experience")}
         >
-          Testimonials
+          Experience
         </a>
         <a
           href="#about"

@@ -1,16 +1,17 @@
 import React from 'react'
 import Image from 'next/image'
+import { Download, Briefcase } from 'lucide-react';
 import memoji from '@/assets/images/memoji-computer.png'
-import ArrowDown from '@/assets/icons/arrow-down.svg'
 import grainImage from '@/assets/images/grain.jpg'
 import HeroOrbit from '../components/HeroOrbit'
 import StarIcon from '@/assets/icons/star.svg'
 import SparkleIcon from '@/assets/icons/sparkle.svg'
+import Link from 'next/link'
 
 export default function Hero() {
     return (
         <div className=' py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip' id="home">
-            <div className=' absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]'>
+            <div className=' absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)] pointer-events-none'>
 
             <div className=' absolute inset-0 -z-30 opacity-5' style={{backgroundImage: `url(${grainImage.src})`
             }}></div>
@@ -65,18 +66,21 @@ export default function Hero() {
                 </div>
                </div>
                 <div className=' max-w-lg mx-auto'>
-                <h1 className=' font-serif text-3xl md:text-5xl text-center mt-4 tracking-wide'>Building Exceptional User Experiences</h1>
-                <p className=' mt-4 text-center text-white/60 md:text-lg'>I specialize in transforming designs into functional, high performing mobile/web applications. Lets Discuss your next idea/project.</p>
+                <h1 className=' font-serif text-3xl md:text-5xl text-center mt-4 tracking-wide'>Hi, I am <span className=' text-emerald-300'>Alok Kiran</span></h1>
+                <p className=' mt-4 text-center text-white/60 md:text-lg'>I specialize in transforming designs into functional, high performing mobile and web applications. Lets Discuss your next idea.</p>
                 </div>
                 <div className=' flex flex-col md:flex-row justify-center items-center mt-8 gap-4'>
+                    <Link href="https://forms.gle/UDAmkjJrjw1vmyCg6" target='_blank'>
                     <button className=' inline-flex items-center gap-2 border border-white/15  px-6 h-12 rounded-xl'>
-                        <span className=' font-semibold'>Explore my work</span>
-                        <ArrowDown className="size-4" />
+                        <span className=' font-semibold text-sm'>Contact Me</span>
+                        <Briefcase />
                     </button>
-                    <button className=' inline-flex items-center gap-2 border border-white text-gray-900 bg-white px-6 h-12 rounded-xl'>
-                        <span>👋</span>
-                        Resume
+                    </Link>
+                    <Link href={"https://drive.google.com/file/d/1WUv2QkDbba3RX2ExS2_IlSzaO5Tmvlo7/view?usp=sharing"} target='_blank'>
+                    <button className=' inline-flex items-center gap-2 border border-white text-gray-900 bg-white px-6 h-12 rounded-xl text-sm font-semibold'>
+                     Resume<span><Download /></span>
                     </button>
+                    </Link>
                 </div>
             </div>
         </div>

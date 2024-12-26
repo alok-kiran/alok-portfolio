@@ -1,6 +1,7 @@
 import React from 'react'
 import ArrowUpRight from "@/assets/icons/arrow-up-right.svg"
 import grainImage from '@/assets/images/grain.jpg'
+import Link from 'next/link';
 
 
 function ContactUs() {
@@ -21,10 +22,12 @@ function ContactUs() {
               </p>
             </div>
             <div>
-              <button className=' text-white bg-gray-900 inline-flex items-center px-6 h-12 rounded-xl gap-2 w-max border border-gray-900'>
+          <Link href="https://forms.gle/UDAmkjJrjw1vmyCg6" target='_blank'>
+          <button className=' text-white bg-gray-900 inline-flex items-center px-6 h-12 rounded-xl gap-2 w-max border border-gray-900'>
                 <span className=' font-semibold'>Contact Me</span>
                 <ArrowUpRight className="size-4" />
                 </button>
+          </Link>
             </div>
           </div>
         </div>
