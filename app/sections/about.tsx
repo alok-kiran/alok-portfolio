@@ -119,7 +119,7 @@ function About() {
     return (
         <div className='py-20 lg:py-28' id="about">
             <div className=' container'>
-                <SectionHeader title="About me" subtitle='A Glimpse Into my World' description='Learn more about who I am, What I do, and what inspires me.' />
+                <SectionHeader classDescription=" w-full " title="About me" subtitle='A Glimpse Into my World' description='I am Alok, passionate and experienced full-stack developer based in Dubai, UAE and with a Computer Science & Engineering degree from Indian Institute of Technology Ropar, Punjab. With over 5 years of experience in building scalable and innovative web and mobile applications, I thrive on transforming ideas into seamless digital experiences. My expertise lies in modern technologies like React.js, React Native, Node.js, and Next.js, Node.js, Express.js enabling me to craft responsive and robust applications tailored to diverse business needs.' />
                 <div className=' mt-20 flex flex-col gap-8'>
                     <div className=' grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-8 lg:grid-cols-3'>
                     <Card className='h-[320px] md:col-span-2 lg:col-span-1'>

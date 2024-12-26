@@ -1,13 +1,16 @@
 import React from 'react'
+import { twMerge } from 'tailwind-merge'
 
 function SectionHeader({
     title,
     subtitle,
-    description
+    description,
+    classDescription
 }: {
     title: string,
     subtitle: string,
-    description: string
+    description: string,
+    classDescription?: string
 }) {
     return (
         <>
@@ -15,7 +18,7 @@ function SectionHeader({
                 <p className=' uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent bg-clip-text text-center'>{title}</p>
             </div>
             <h2 className=' font-serif text-3xl text-center mt-6 md:text-5xl'>{subtitle}</h2>
-            <p className=' text-center text-white/60 mt-4 md:text-lg max-w-md mx-auto lg:text-xl'>{description}</p>
+            <p className={twMerge('text-center text-white/60 mt-4 md:text-lg mx-auto lg:text-xl', classDescription)}>{description}</p>
         </>
     )
 }

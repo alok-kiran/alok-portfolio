@@ -29,10 +29,10 @@ const EXPERIENCE = [
         location: "Dubai, United Arab Emirates",
         companyLink: "https://www.invygo.com/",
         results: [
-            { title: "Created a Trello-like project management platform with boards, lists, and drag-and-drop functionality." },
-            { title: "Designed collaborative features, including user invitations and real-time activity audits for transparency." },
-            { title: "Built with Next.js, Node.js, Tailwind CSS, and MySQL for scalable and efficient performance." },
-            { title: "Solved the need for streamlined project organization and team collaboration in a single platform." },
+            { title: "Engineered centralized UI component library using Storybook for React Native, streamlining development workflows and achieving 75% reduction in build time" },
+            { title: "Optimized customer service efficiency through strategic Freshdesk implementation, resulting in 80% decreased contact volume and improved support team productivity" },
+            { title: "Spearheaded development of live driver location tracking feature with automated customer communications, improving delivery visibility and cutting support volume by 88%" },
+            { title: "Optimized mobile payment flow through Apple Pay integration, reducing friction in checkout process and boosting customer engagement by 10%" },
         ],
         companyLogo: InvygoLogo,
     },
@@ -48,7 +48,7 @@ const Details = ({ title, company, year, location, results, companyLink }: {
 }) => {
     const first = useRef(null);
     return (
-        <li ref={first} className=' my-24 first:mt-0 last:mb-0 w-[80%] mx-auto'>
+        <li ref={first} className=' my-16 first:mt-0 last:mb-0 w-[80%] mx-auto'>
             <LiIcon liRef={first}  />
             <motion.div className=' '
             initial={{ y:50 }}
@@ -59,7 +59,7 @@ const Details = ({ title, company, year, location, results, companyLink }: {
                 <span className=' caption-top font-medium text-white/30'>{year} | {location}</span>
                 <ul className=' font-medium w-full'>
                     {results.map((result) => (
-                        <li key={result.title}>{result.title}</li>
+                        <li key={result.title} className=' text-xl/2 my-2'><span className=' size-2 text-emerald-300 mr-2'>✅</span>{result.title}</li>
                     ))}
                 </ul>
             </motion.div>
