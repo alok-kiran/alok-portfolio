@@ -71,20 +71,24 @@ export default function Hero() {
                <h1 className=' font-serif text-3xl md:text-5xl text-center mt-4 tracking-wide'>Hi, I am <span className=' text-emerald-300'>Alok Kiran</span></h1>
                <p className=' mt-4 text-center text-white/60 md:text-lg'>I specialize in transforming designs into functional, high performing mobile and web applications. Lets Discuss your next idea.</p>
             </div>
-            <div className=" text-white/50 flex flex-wrap justify-center items-center my-10 gap-4 w-full">
-               <Link href={"https://github.com/alok-kiran"} target="_blank" className=' flex flex-row items-center gap-x-2 border-2 border-gray-800 rounded-lg px-4 py-2 w-full md:w-auto md:flex-1 justify-center'>
+           <div className=' flex flex-col items-center'>
+           <div className=" text-white/50 flex flex-wrap justify-center items-center mt-10 gap-4 w-full max-w-md max-auto">
+               <Link href={"https://github.com/alok-kiran"} target="_blank" className=' flex flex-row items-center gap-x-2 border border-gray-800 rounded-lg px-4 py-2 w-full md:w-auto md:flex-1 justify-center'>
                  <span className=' font-serif'>Github</span><Github size={20} />
                </Link>
-               <Link href={"https://www.linkedin.com/in/alokkiran/"} target="_blank" className=' flex flex-row items-center gap-x-2 border-2 border-gray-800 rounded-lg px-4 py-2 w-full md:w-auto md:flex-1 justify-center'>
+               <Link href={"https://www.linkedin.com/in/alokkiran/"} target="_blank" className=' flex flex-row items-center gap-x-2 border border-gray-800 rounded-lg px-4 py-2 w-full md:w-auto md:flex-1 justify-center'>
                  <span className=' font-serif'>LinkedIn</span><Linkedin size={20} />
                </Link>
-               <Link href={"mailto:alokkiran777@gmail.com"} target="_blank" className=' flex flex-row items-center gap-x-2 border-2 border-gray-800 rounded-lg px-4 py-2 w-full md:w-auto md:flex-1 justify-center'>
+            </div>
+            <div className=" text-white/50 flex flex-wrap justify-center items-center mt-4 gap-4 w-full max-w-md mx-auto">
+            <Link href={"mailto:alokkiran777@gmail.com"} target="_blank" className=' flex flex-row items-center gap-x-2 border border-gray-800 rounded-lg px-4 py-2 w-full md:w-auto md:flex-1 justify-center'>
                  <span className=' font-serif'>Email</span><Inbox size={20} />
                </Link>
-               <Link href={"https://drive.google.com/file/d/1WUv2QkDbba3RX2ExS2_IlSzaO5Tmvlo7/view?usp=sharing"} target="_blank" className=' flex flex-row items-center gap-x-2 border-2 border-gray-800 rounded-lg px-4 py-2 w-full md:w-auto md:flex-1 justify-center'>
+               <Link href={"https://drive.google.com/file/d/1WUv2QkDbba3RX2ExS2_IlSzaO5Tmvlo7/view?usp=sharing"} target="_blank" className=' flex flex-row items-center gap-x-2 border border-gray-800 rounded-lg px-4 py-2 w-full md:w-auto md:flex-1 justify-center'>
                  <span className=' font-serif'>Resume</span><Download size={20} />
                </Link>
             </div>
+           </div>
          </div>
       </div>
    )
