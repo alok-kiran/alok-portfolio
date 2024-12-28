@@ -43,6 +43,7 @@ import SentryIcon from '@/assets/icons/tech/sentry.svg'
 import shadcnIcon from '@/assets/icons/tech/shadcn-ui.svg'
 import tailwindCssIcon from '@/assets/icons/tech/tailwind-css.svg'
 import stripeIcon from '@/assets/icons/tech/stripe.svg'
+import RedisIcon from '@/assets/icons/tech/redis.svg'
 
 const toolBox1 = [
     { title: "Apple Pay", description: "A digital payment solution by Apple", iconType: ApplePayIcon },
@@ -64,6 +65,9 @@ const toolBox1 = [
     { title: "Jira", description: "A tool for project management and issue tracking", iconType: JiraIcon },
     { title: "Kibana", description: "A data visualization dashboard for Elasticsearch", iconType: KibanaIcon },
     { title: "Kubernetes", description: "A container orchestration platform", iconType: KubernetesIcon },
+    {
+        title: "Redis", description: "An open-source in-memory data structure store", iconType: RedisIcon
+    }
 ]
 
 const toolBox2 = [
