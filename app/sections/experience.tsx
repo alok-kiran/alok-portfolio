@@ -24,7 +24,7 @@ const EXPERIENCE = [
             { title: "Upgraded the React Native app from version 0.66.1 to 0.71.1, involving updates to over 25 third-party libraries and refactoring critical logic, leading to a 30% improvement in app performance and a 25% reduction in crashes. The upgrade also enhanced maintainability, reducing future development time by 20%." },
         ],
         companyLogo: ComoLogo,
-        techStack: ['HTML5 & CSS3','React JS', 'React Native', 'Next JS', 'Redux', 'React Query', 'Tailwind CSS', 'Material UI', 'Shadcn UI' ,'Node.js', 'Next Auth', 'Express.js' , 'Dot Net', 'MongoDB',  'PostgreSQL', 'MySQL', 'Github', 'Jira', 'Jenkins', 'Docker', 'Kubernetes', 'Kibana', 'CodeMagic', 'Sentry', 'Google Analytics', 'Firebase', 'Firebase Cloud Messaging', 'Postman', 'Jest', 'Cypress'],
+        techStack: ['HTML5 & CSS3','JavaScript', 'TypeScript','React JS',  'React Native', 'Next JS', 'Redux', 'React Query', 'Tailwind CSS', 'Material UI', 'Shadcn UI' ,'Node.js', 'Next Auth', 'Express.js' , 'Dot Net', 'MongoDB',  'PostgreSQL', 'MySQL', 'Github', 'Jira', 'Jenkins', 'Docker', 'Kubernetes', 'Kibana', 'CodeMagic', 'Sentry', 'Google Analytics', 'Firebase', 'Firebase Cloud Messaging', 'Postman', 'Jest', 'Cypress'],
     },
     {
         company: "Invygo Tech LLC",
@@ -39,7 +39,7 @@ const EXPERIENCE = [
             { title: "Optimized mobile payment flow through Apple Pay integration, reducing friction in checkout process and boosting customer engagement by 10%." },
         ],
         companyLogo: InvygoLogo,
-        techStack: ['HTML5 & CSS3','React JS', 'Next JS', 'React Native', 'Node.js', 'Express.js', 'MongoDB', 'MySQL', 'Rabbit MQ', 'Apple Pay','Github', 'Bitrise', 'Jira'],
+        techStack: ['HTML5 & CSS3', 'JavaScript', 'TypeScript', 'React JS', 'Next JS', 'React Native', 'Node.js', 'Express.js', 'MongoDB', 'MySQL', 'Rabbit MQ', 'Apple Pay','Github', 'Bitrise', 'Jira'],
     },
 ]
 

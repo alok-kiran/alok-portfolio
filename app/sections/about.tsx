@@ -5,7 +5,7 @@ import SectionHeader from '../components/SectionHeader'
 import Card from '../components/Card'
 import BookImage from '@/assets/images/book-cover.png'
 import Image from 'next/image'
-import JsIcon from '@/assets/icons/square-js.svg'
+import JsIcon from '@/assets/icons/tech/javascript.svg'
 import HtmlIcon from '@/assets/icons/html5.svg'
 import CssIcon from '@/assets/icons/css3.svg'
 import GithubIcon from '@/assets/icons/github.svg'
@@ -14,58 +14,75 @@ import MapImage from '@/assets/images/map.png'
 import AlokImage from '@/assets/images/alok.png'
 import CardHeader from '../components/CardHeader'
 import ToolBoxItems from '../components/ToolBoxItems'
-
+import TypeScriptIcon from '@/assets/icons/tech/typescript.svg'
+import ApplePayIcon from '@/assets/icons/tech/apple-pay.svg'
+import BitriseIcon from '@/assets/icons/tech/bitriseio-icon.svg'
+import CypressIcon from '@/assets/icons/tech/cypress.svg'
+import DockerIcon from '@/assets/icons/tech/docker.svg'
+import DotnetIcon from '@/assets/icons/tech/dotnet.svg'
+import FireBaseIcon from '@/assets/icons/tech/firebase.svg'
+import GoogleAnalyticsIcon from '@/assets/icons/tech/google-analytics.svg'
+import JenkinsIcon from '@/assets/icons/tech/jenkins.svg'
+import JestIcon from '@/assets/icons/tech/jest.svg'
+import KibanaIcon from '@/assets/icons/tech/kibana.svg'
+import JiraIcon from '@/assets/icons/tech/jira.svg'
+import KubernetesIcon from '@/assets/icons/tech/kubernets.svg'
+import CodemagicIcon from '@/assets/icons/tech/codemagic.svg'
+import MaterialUIIcon from '@/assets/icons/tech/material.svg'
+import MongoDBIcon from '@/assets/icons/tech/mongodb.svg'
+import MySqlIcon from '@/assets/icons/tech/mysql.svg'
+import NextJsIcon from '@/assets/icons/tech/next.svg'
+import NodeJSIcon from '@/assets/icons/tech/nodejs.svg'
+import postgreSQLIcon from '@/assets/icons/tech/postgresql.svg'
+import postmanIcon from '@/assets/icons/tech/postman.svg'
+import RabbitMQIcon from '@/assets/icons/tech/rabbitmq.svg'
+import ReactnativeIcon from '@/assets/icons/tech/react-native.svg'
+import ReactQueryIcon from '@/assets/icons/tech/react-query.svg'
+import ReduxIcon from '@/assets/icons/tech/redux.svg'
+import SentryIcon from '@/assets/icons/tech/sentry.svg'
+import shadcnIcon from '@/assets/icons/tech/shadcn-ui.svg'
+import tailwindCssIcon from '@/assets/icons/tech/tailwind-css.svg'
+import stripeIcon from '@/assets/icons/tech/stripe.svg'
 
 const toolBox1 = [
-    {
-        title: "JavaScript",
-        description: "The programming language that powers the web",
-        iconType: JsIcon,
-    },
-    {
-        title: "HTML5",
-        description: "The markup language that structures the web",
-        iconType: HtmlIcon,
-    },
-    {
-        title: "CSS3",
-        description: "The styling language that beautifies the web",
-        iconType: CssIcon,
-    },
-    {
-        title: "TypeScript",
-        description: "The superset of JavaScript that adds type safety",
-        iconType: JsIcon,
-    },
-    {
-        title: "React",
-        description: "The JavaScript library for building user interfaces",
-        iconType: ReactIcon,
-    },
-
+    { title: "Apple Pay", description: "A digital payment solution by Apple", iconType: ApplePayIcon },
+    { title: "Bitrise", description: "A mobile CI/CD platform for app development", iconType: BitriseIcon },
+    { title: "CodeMagic", description: "A CI/CD tool for mobile apps", iconType: CodemagicIcon },
+    { title: "Cypress", description: "A JavaScript end-to-end testing framework", iconType: CypressIcon },
+    { title: "Docker", description: "A platform for containerized applications", iconType: DockerIcon },
+    { title: "Dot Net", description: "A framework for building web, desktop, and mobile apps", iconType: DotnetIcon },
+    { title: "Express.js", description: "A fast, unopinionated Node.js web application framework", iconType: '' },
+    { title: "Firebase", description: "A platform for building mobile and web applications", iconType: FireBaseIcon },
+    { title: "Github", description: "A platform for hosting and collaborating on code", iconType: GithubIcon },
+    { title: "Google Analytics", description: "A web analytics service for tracking website traffic", iconType: GoogleAnalyticsIcon },
+    { title: "JavaScript", description: "A programming language for building interactive websites", iconType: JsIcon },
+    { title: "TypeScript", description: "A superset of JavaScript for building scalable applications", iconType: TypeScriptIcon },
+    { title: "HTML5", description: "The fundamental technologies for building web pages", iconType: HtmlIcon },
+    { title: "CSS3", description: "A style sheet language for designing web pages", iconType: CssIcon },
+    { title: "Jenkins", description: "An automation server for CI/CD", iconType: JenkinsIcon },
+    { title: "Jest", description: "A JavaScript testing framework", iconType: JestIcon },
+    { title: "Jira", description: "A tool for project management and issue tracking", iconType: JiraIcon },
+    { title: "Kibana", description: "A data visualization dashboard for Elasticsearch", iconType: KibanaIcon },
+    { title: "Kubernetes", description: "A container orchestration platform", iconType: KubernetesIcon },
 ]
 
 const toolBox2 = [
-    {
-        title: "Next.js",
-        description: "The React framework for building production-ready applications",
-        iconType: JsIcon,
-    },
-    {
-        title: "Tailwind CSS",
-        description: "The utility-first CSS framework for rapidly building custom designs",
-        iconType: JsIcon,
-    },
-    {
-        title: "Node.js",
-        description: "The JavaScript runtime for building server-side applications",
-        iconType: JsIcon,
-    },
-    {
-        title: "Github",
-        description: "The platform for hosting and collaborating on code",
-        iconType: GithubIcon,
-    }
+    { title: "Material UI", description: "A React component library following Google's Material Design", iconType: MaterialUIIcon },
+    { title: "MongoDB", description: "A NoSQL database for modern applications", iconType: MongoDBIcon },
+    { title: "MySQL", description: "A relational database management system", iconType: MySqlIcon },
+    { title: "Next JS", description: "A React framework for server-rendered and static web applications", iconType: NextJsIcon },
+    { title: "Node.js", description: "A runtime for executing JavaScript on the server", iconType: NodeJSIcon },
+    { title: "PostgreSQL", description: "An open-source relational database system", iconType: postgreSQLIcon },
+    { title: "Postman", description: "A collaboration platform for API development", iconType: postmanIcon },
+    { title: "Rabbit MQ", description: "A message-broker software for distributed systems", iconType: RabbitMQIcon },
+    { title: "React JS", description: "A JavaScript library for building user interfaces", iconType: ReactIcon },
+    { title: "React Native", description: "A framework for building native apps using React", iconType: ReactnativeIcon },
+    { title: "React Query", description: "A library for data fetching and state management", iconType: ReactQueryIcon },
+    { title: "Redux", description: "A state management library for JavaScript applications", iconType: ReduxIcon },
+    { title: "Sentry", description: "A monitoring platform for identifying and fixing errors", iconType: SentryIcon },
+    { title: "Shadcn UI", description: "A collection of reusable components for React", iconType: shadcnIcon },
+    { title: "Stripe", description: "A payment processing platform for online transactions, subscriptions, and financial management", iconType: stripeIcon },
+    { title: "Tailwind CSS", description: "A utility-first CSS framework for rapid UI development", iconType: tailwindCssIcon }
 ]
 
 const hobbies = [
@@ -137,11 +154,11 @@ function About() {
                             description='Explore the technologies and tools I use to craft exceptional digital experiences.'
                             className=''
                         />
-                            <ToolBoxItems items={toolBox1} className='' itemsWrapperClassName='animate-move-left [animation-duration:15s] hover:[animation-play-state:paused]'/>
+                            <ToolBoxItems items={toolBox1} className='' itemsWrapperClassName='animate-move-left [animation-duration:60s] hover:[animation-play-state:paused]'/>
                             <ToolBoxItems 
                                 items={toolBox2} 
                                 className=' mt-6'
-                                itemsWrapperClassName='animate-move-right [animation-duration:15s] hover:[animation-play-state:paused]'
+                                itemsWrapperClassName='animate-move-right [animation-duration:60s] hover:[animation-play-state:paused]'
                                 />
                     </Card>
                     </div>
