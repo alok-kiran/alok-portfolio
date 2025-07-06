@@ -74,16 +74,30 @@ export default function Contact() {
     e.preventDefault();
     setStatus('sending');
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    // In a real app, you would send the email here
-    console.log('Form submitted:', formData);
-    
-    setStatus('success');
-    setFormData({ name: '', email: '', message: '' });
-    
-    setTimeout(() => setStatus('idle'), 5000);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        const errorData = await response.json();
+        console.error('Error sending email:', errorData);
+        setStatus('error');
+        setTimeout(() => setStatus('idle'), 5000);
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 5000);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
