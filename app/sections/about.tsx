@@ -1,207 +1,208 @@
 "use client";
-import React from 'react'
-import { motion } from 'framer-motion'
-import SectionHeader from '../components/SectionHeader'
-import Card from '../components/Card'
-import BookImage from '@/assets/images/book-cover.png'
-import Image from 'next/image'
-import JsIcon from '@/assets/icons/tech/javascript.svg'
-import HtmlIcon from '@/assets/icons/html5.svg'
-import CssIcon from '@/assets/icons/css3.svg'
-import GithubIcon from '@/assets/icons/github.svg'
-import ReactIcon from '@/assets/icons/react.svg'
-import MapImage from '@/assets/images/map.png'
-import AlokImage from '@/assets/images/alok.png'
-import CardHeader from '../components/CardHeader'
-import ToolBoxItems from '../components/ToolBoxItems'
-import TypeScriptIcon from '@/assets/icons/tech/typescript.svg'
-import ApplePayIcon from '@/assets/icons/tech/apple-pay.svg'
-import BitriseIcon from '@/assets/icons/tech/bitriseio-icon.svg'
-import CypressIcon from '@/assets/icons/tech/cypress.svg'
-import DockerIcon from '@/assets/icons/tech/docker.svg'
-import DotnetIcon from '@/assets/icons/tech/dotnet.svg'
-import FireBaseIcon from '@/assets/icons/tech/firebase.svg'
-import GoogleAnalyticsIcon from '@/assets/icons/tech/google-analytics.svg'
-import JenkinsIcon from '@/assets/icons/tech/jenkins.svg'
-import JestIcon from '@/assets/icons/tech/jest.svg'
-import KibanaIcon from '@/assets/icons/tech/kibana.svg'
-import JiraIcon from '@/assets/icons/tech/jira.svg'
-import KubernetesIcon from '@/assets/icons/tech/kubernets.svg'
-import CodemagicIcon from '@/assets/icons/tech/codemagic.svg'
-import MaterialUIIcon from '@/assets/icons/tech/material.svg'
-import MongoDBIcon from '@/assets/icons/tech/mongodb.svg'
-import MySqlIcon from '@/assets/icons/tech/mysql.svg'
-import NextJsIcon from '@/assets/icons/tech/next.svg'
-import NodeJSIcon from '@/assets/icons/tech/nodejs.svg'
-import postgreSQLIcon from '@/assets/icons/tech/postgresql.svg'
-import postmanIcon from '@/assets/icons/tech/postman.svg'
-import RabbitMQIcon from '@/assets/icons/tech/rabbitmq.svg'
-import ReactnativeIcon from '@/assets/icons/tech/react-native.svg'
-import ReactQueryIcon from '@/assets/icons/tech/react-query.svg'
-import ReduxIcon from '@/assets/icons/tech/redux.svg'
-import SentryIcon from '@/assets/icons/tech/sentry.svg'
-import shadcnIcon from '@/assets/icons/tech/shadcn-ui.svg'
-import tailwindCssIcon from '@/assets/icons/tech/tailwind-css.svg'
-import stripeIcon from '@/assets/icons/tech/stripe.svg'
-import RedisIcon from '@/assets/icons/tech/redis.svg'
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Code2, Smartphone, Rocket, Users, Brain, Zap } from 'lucide-react';
+import Image from 'next/image';
+import AlokImage from '@/assets/images/alok.png';
 
-const toolBox1 = [
-    { title: "Apple Pay", description: "A digital payment solution by Apple", iconType: ApplePayIcon },
-    { title: "Bitrise", description: "A mobile CI/CD platform for app development", iconType: BitriseIcon },
-    { title: "CodeMagic", description: "A CI/CD tool for mobile apps", iconType: CodemagicIcon },
-    { title: "Cypress", description: "A JavaScript end-to-end testing framework", iconType: CypressIcon },
-    { title: "Docker", description: "A platform for containerized applications", iconType: DockerIcon },
-    { title: "Dot Net", description: "A framework for building web, desktop, and mobile apps", iconType: DotnetIcon },
-    { title: "Express.js", description: "A fast, unopinionated Node.js web application framework", iconType: '' },
-    { title: "Firebase", description: "A platform for building mobile and web applications", iconType: FireBaseIcon },
-    { title: "Github", description: "A platform for hosting and collaborating on code", iconType: GithubIcon },
-    { title: "Google Analytics", description: "A web analytics service for tracking website traffic", iconType: GoogleAnalyticsIcon },
-    { title: "JavaScript", description: "A programming language for building interactive websites", iconType: JsIcon },
-    { title: "TypeScript", description: "A superset of JavaScript for building scalable applications", iconType: TypeScriptIcon },
-    { title: "HTML5", description: "The fundamental technologies for building web pages", iconType: HtmlIcon },
-    { title: "CSS3", description: "A style sheet language for designing web pages", iconType: CssIcon },
-    { title: "Jenkins", description: "An automation server for CI/CD", iconType: JenkinsIcon },
-    { title: "Jest", description: "A JavaScript testing framework", iconType: JestIcon },
-    { title: "Jira", description: "A tool for project management and issue tracking", iconType: JiraIcon },
-    { title: "Kibana", description: "A data visualization dashboard for Elasticsearch", iconType: KibanaIcon },
-    { title: "Kubernetes", description: "A container orchestration platform", iconType: KubernetesIcon },
-    {
-        title: "Redis", description: "An open-source in-memory data structure store", iconType: RedisIcon
-    }
-]
+gsap.registerPlugin(ScrollTrigger);
 
-const toolBox2 = [
-    { title: "Material UI", description: "A React component library following Google's Material Design", iconType: MaterialUIIcon },
-    { title: "MongoDB", description: "A NoSQL database for modern applications", iconType: MongoDBIcon },
-    { title: "MySQL", description: "A relational database management system", iconType: MySqlIcon },
-    { title: "Next JS", description: "A React framework for server-rendered and static web applications", iconType: NextJsIcon },
-    { title: "Node.js", description: "A runtime for executing JavaScript on the server", iconType: NodeJSIcon },
-    { title: "PostgreSQL", description: "An open-source relational database system", iconType: postgreSQLIcon },
-    { title: "Postman", description: "A collaboration platform for API development", iconType: postmanIcon },
-    { title: "Rabbit MQ", description: "A message-broker software for distributed systems", iconType: RabbitMQIcon },
-    { title: "React JS", description: "A JavaScript library for building user interfaces", iconType: ReactIcon },
-    { title: "React Native", description: "A framework for building native apps using React", iconType: ReactnativeIcon },
-    { title: "React Query", description: "A library for data fetching and state management", iconType: ReactQueryIcon },
-    { title: "Redux", description: "A state management library for JavaScript applications", iconType: ReduxIcon },
-    { title: "Sentry", description: "A monitoring platform for identifying and fixing errors", iconType: SentryIcon },
-    { title: "Shadcn UI", description: "A collection of reusable components for React", iconType: shadcnIcon },
-    { title: "Stripe", description: "A payment processing platform for online transactions, subscriptions, and financial management", iconType: stripeIcon },
-    { title: "Tailwind CSS", description: "A utility-first CSS framework for rapid UI development", iconType: tailwindCssIcon }
-]
+const skills = [
+  { icon: Code2, title: "Full-Stack Development", description: "Building scalable applications with React, Node.js, and modern frameworks" },
+  { icon: Smartphone, title: "App Development", description: "Creating intuitive and beautiful user interfaces with attention to detail" },
+  { icon: Rocket, title: "Performance", description: "Optimizing applications for speed and efficiency" },
+  { icon: Users, title: "Collaboration", description: "Working effectively in teams and mentoring junior developers" },
+  { icon: Brain, title: "Problem Solving", description: "Tackling complex challenges with innovative solutions" },
+  { icon: Zap, title: "Fast Learner", description: "Quickly adapting to new technologies and frameworks" }
+];
 
-const hobbies = [
-    {
-        title: "Reading",
-        emoji: "📚",
-        left: "5%",
-        top: "5%",
-    },
-    {
-        title: "Traveling",
-        emoji: "🌍",
-        left: "50%",
-        top: "5%",
-    },
-    {
-        title: "Photography",
-        emoji: "📸",
-        left: "10%",
-        top: "35%",
-    },
-    {
-        title: "Hiking",
-        emoji: "🥾",
-        left: "35%",
-        top: "40%",
-    },
-    {
-        title: "Cooking",
-        emoji: "🍳",
-        left: "70%",
-        top: "45%",
-    },
-    {
-        title: "Gaming",
-        emoji: "🎮",
-        left: "5%",
-        top: "65%",
-    },
-    {
-        title: "Meditation",
-        emoji: "🧘",
-        left: "45%",
-        top: "70%",
-    },
-]
+const techStack = {
+  "Frontend": ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "React Native"],
+  "Backend": ["Node.js", "Express.js", "PostgreSQL", "MongoDB", "Redis"],
+  "Tools": ["Docker", "Kubernetes", "Jenkins", "Git", "Jira"],
+  "Cloud": ["AWS", "Google Cloud", "Firebase", "Vercel"]
+};
 
+export default function About() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
+  const techRef = useRef<HTMLDivElement>(null);
 
-function About() {
-    const constraintsRef = React.useRef(null);
-    return (
-        <div className='py-20 lg:py-28' id="about">
-            <div className=' container'>
-                <SectionHeader classDescription=" w-full " title="About me" subtitle='A Glimpse Into my World' description='I am Alok, passionate and experienced full-stack developer based in Dubai, UAE and with a Computer Science & Engineering degree from Indian Institute of Technology Ropar, Punjab. With over 5 years of experience in building scalable and innovative web and mobile applications, I thrive on transforming ideas into seamless digital experiences. My expertise lies in modern technologies like React.js, React Native, Node.js, and Next.js, Node.js, Express.js enabling me to craft responsive and robust applications tailored to diverse business needs.' />
-                <div className=' mt-20 flex flex-col gap-8'>
-                    <div className=' grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-8 lg:grid-cols-3'>
-                    <Card className='h-[320px] md:col-span-2 lg:col-span-1'>
-                        <CardHeader 
-                            title='My Reads' 
-                            description='Explore the books shaping my perspective.'
-                        />
-                        <div className=' w-40 mx-auto mt-2 md:mt-0'>
-                        <Image src={BookImage} alt='Book cover' />
-                        </div>
-                    </Card>
-                    <Card className='h-[320px] md:col-span-3 lg:col-span-2'>
-                        <CardHeader 
-                            title='My Toolbox' 
-                            description='Explore the technologies and tools I use to craft exceptional digital experiences.'
-                            className=''
-                        />
-                            <ToolBoxItems items={toolBox1} className='' itemsWrapperClassName='animate-move-left [animation-duration:60s] hover:[animation-play-state:paused]'/>
-                            <ToolBoxItems 
-                                items={toolBox2} 
-                                className=' mt-6'
-                                itemsWrapperClassName='animate-move-right [animation-duration:60s] hover:[animation-play-state:paused]'
-                                />
-                    </Card>
-                    </div>
-                    <div className=' grid grid-cols-1 md:grid-cols-5 gap-8 lg:grid-cols-3'>
-                    <Card className=' h-[320px] p-0 flex flex-col md:col-span-3 lg:col-span-2'>
-                        <CardHeader 
-                            title='Beyond the Code' 
-                            description='Explore my interest and hobbies beyond the digital realm'
-                            className='px-6 py-6'
-                        />
-                        <div className=' relative flex-1' ref={constraintsRef}> 
-                            {hobbies.map((hobby) => (
-                                <motion.div drag dragConstraints={constraintsRef} key={hobby.title} className='items-center inline-flex gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5 absolute' style={{
-                                    left: hobby.left,
-                                    top: hobby.top,
-                                }}>
-                                    <span className=' font-medium text-gray-950'>{hobby.title}</span>
-                                    <span>{hobby.emoji}</span>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </Card>
-                    <Card className=' h-[320px] p-0 relative md:col-span-2 lg:col-span-1'>
-                        <Image src={MapImage} alt='Map' className=' h-full w-full object-cover object-left-top' />
-                        <div className=" absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-20 rounded-full  after:content-[''] after:absolute after:inset-0 after:outline after:outline-2 after:-outline-offset-2 after:rounded-full after:outline-gray-950/30">
-                        <div className=' absolute inset-0 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 -z-20 animate-ping [animation-duration:2s]'>
+  useEffect(() => {
+    // Ensure cards are visible by default
+    gsap.set(".skill-card", { opacity: 1, y: 0 });
+    
+    const ctx = gsap.context(() => {
+      // Image animation
+      gsap.from(imageRef.current, {
+        scale: 0.8,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: imageRef.current,
+          start: "top 80%",
+        }
+      });
+      // Content animation
+      const contentChildren = contentRef.current?.children ? Array.from(contentRef.current.children) : [];
+      gsap.from(contentChildren, {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: contentRef.current,
+          start: "top 80%",
+        }
+      });
 
-                        </div>
-                        <div className=' absolute inset-0 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 -z-10'>
+      // Skills animation
+      const skillCards = document.querySelectorAll(".skill-card");
+      if (skillCards.length > 0) {
+        gsap.fromTo(skillCards, 
+          {
+            y: 50,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: skillsRef.current,
+              start: "top 80%",
+              once: true
+            }
+          }
+        );
+      }
 
-                        </div>
-                        <Image src={AlokImage} alt='Map' className=' size-20' />
-                        </div>
-                    </Card>
-                    </div>
-                </div>
-            </div>
+      // Tech stack animation
+      gsap.from(".tech-category", {
+        x: -50,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: techRef.current,
+          start: "top 80%",
+        }
+      });
+
+      // Floating animation for image
+      gsap.to(imageRef.current, {
+        y: -20,
+        duration: 3,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut"
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="section-padding relative overflow-hidden" id="about">
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl" />
+
+      <div className="container relative z-10">
+        {/* Header */}
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+            About <span className="gradient-text">Me</span>
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto px-4">
+            Passionate full-stack developer with {new Date().getFullYear() - 2019} years of experience building innovative solutions
+          </p>
         </div>
-    )
-}
 
-export default About
+        {/* Main content */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16 sm:mb-20">
+          {/* Image */}
+          <div className="relative order-2 lg:order-1">
+            <div ref={imageRef} className="relative w-full max-w-sm sm:max-w-md mx-auto">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl blur-2xl opacity-30" />
+              <div className="relative glass-effect rounded-2xl p-4 sm:p-8">
+                <Image 
+                  src={AlokImage} 
+                  alt="Alok Kiran" 
+                  className="rounded-xl w-full"
+                  width={400}
+                  height={400}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div ref={contentRef} className="space-y-4 sm:space-y-6 order-1 lg:order-2">
+            <h3 className="text-2xl sm:text-3xl font-bold leading-tight">
+              I&apos;m Alok Kiran, a <span className="gradient-text">Full-Stack Developer</span>
+            </h3>
+            <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
+              With a Computer Science & Engineering degree from Indian Institute of Technology Ropar, 
+              I bring over {new Date().getFullYear() - 2019} years of experience in building scalable and innovative web and mobile applications. 
+              I thrive on transforming ideas into seamless digital experiences.
+            </p>
+            <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
+              My expertise lies in modern technologies like React.js, React Native, Node.js, and Next.js, 
+              enabling me to craft responsive and robust applications tailored to diverse business needs.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
+              <a href="#experience" className="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 text-center">
+                View Experience
+              </a>
+              <a href="#contact" className="px-6 py-3 glass-effect rounded-full font-medium hover:bg-white/10 transition-all duration-300 text-center">
+                Get In Touch
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Skills */}
+        <div ref={skillsRef} className="mb-16 sm:mb-20">
+          <h3 className="text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8">What I Do Best</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            {skills.map((skill, index) => (
+              <div key={index} className="skill-card glass-effect p-4 sm:p-6 rounded-xl hover:bg-white/10 transition-all duration-300 group">
+                <skill.icon className="w-8 sm:w-10 h-8 sm:h-10 text-purple-400 mb-3 sm:mb-4 group-hover:scale-110 transition-transform" />
+                <h4 className="font-semibold mb-2 text-sm sm:text-base">{skill.title}</h4>
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">{skill.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Tech Stack */}
+        <div ref={techRef} className="glass-effect rounded-2xl p-4 sm:p-8 md:p-12">
+          <h3 className="text-xl sm:text-2xl font-bold text-center mb-8 sm:mb-12">Tech Stack</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {Object.entries(techStack).map(([category, techs]) => (
+              <div key={category} className="tech-category">
+                <h4 className="font-semibold text-purple-400 mb-3 sm:mb-4 text-sm sm:text-base">{category}</h4>
+                <div className="space-y-2">
+                  {techs.map((tech) => (
+                    <div key={tech} className="px-3 sm:px-4 py-2 bg-white/5 rounded-lg hover:bg-white/10 transition-colors cursor-pointer text-xs sm:text-sm">
+                      {tech}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

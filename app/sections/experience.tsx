@@ -1,114 +1,226 @@
 "use client";
-import React, { useRef } from 'react'
-import SectionHeader from '../components/SectionHeader'
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Calendar, MapPin, Star } from 'lucide-react';
+import Link from 'next/link';
+import Image from 'next/image';
 import InvygoLogo from '@/assets/images/invygo_logo.png';
 import ComoLogo from '@/assets/images/como_logo.png';
-import Link from 'next/link';
-import { useScroll, motion } from 'framer-motion';
-import LiIcon from '../components/LiIcon';
-import StarIcon from '@/assets/icons/star.svg';
 
-const EXPERIENCE = [
-    {
-        company: "Como (Acquired by Global Payments GPN:NYSE)",
-        year: "Dec 2022 - Present",
-        title: "Software Engineer - II",
-        location: "Dubai, United Arab Emirates",
-        companyLink: "https://www.comosense.com/",
-        results: [
-            { title: "Reduced Next.js application page size by 88% (938 KB to 111 KB) through advanced optimizations, including dynamic imports, image optimization, lazy loading, tree shaking, and removal of unused CSS, significantly enhancing load time and user experience." },
-            { title: "Enhanced user acquisition efficiency by implementing an account merge feature with OTP verification, allowing users to consolidate registrations via email or phone, ensuring unique identification and reducing acquisition redundancy by 30%." },
-            { title: "Developed a multi-language support dashboard for customer-facing Next.js web apps, enabling businesses to configure and update multilingual text dynamically without redeployment. This highly configurable feature fetched language-specific content based on user preferences, boosting business acquisition by 20%." },
-            { title: "Implemented comprehensive accessibility features for the customer portal of the web app, achieving 100% compliance with global accessibility standards. This enhancement ensured inclusivity for all users and prevented potential legal risks, saving an estimated 15% in potential compliance-related costs." },
-            { title: "Enhanced the customer portal by creating a standalone, sharable user registration page within the same codebase. This feature streamlined the registration process by bypassing the login flow for new users and allowed integration with other apps via webview or iframe, increasing user acquisition by 20%." },
-            { title: "Upgraded the React Native app from version 0.66.1 to 0.71.1, involving updates to over 25 third-party libraries and refactoring critical logic, leading to a 30% improvement in app performance and a 25% reduction in crashes. The upgrade also enhanced maintainability, reducing future development time by 20%." },
-        ],
-        companyLogo: ComoLogo,
-        techStack: ['HTML5 & CSS3','JavaScript', 'TypeScript','React JS',  'React Native', 'Next JS', 'Redux', 'React Query', 'Tailwind CSS', 'Material UI', 'Shadcn UI' ,'Node.js', 'Next Auth', 'Express.js' , 'Dot Net', 'MongoDB',  'PostgreSQL', 'MySQL', 'Github', 'Jira', 'Jenkins', 'Docker', 'Kubernetes', 'Kibana', 'CodeMagic', 'Sentry', 'Google Analytics', 'Firebase', 'Firebase Cloud Messaging', 'Postman', 'Jest', 'Cypress', 'Redis'],
-    },
-    {
-        company: "Invygo Tech LLC",
-        year: "June 2019 - Nov 2022",
-        title: "Software Engineer - I",
-        location: "Dubai, United Arab Emirates",
-        companyLink: "https://www.invygo.com/",
-        results: [
-            { title: "Engineered centralized UI component library using Storybook for React Native, streamlining development workflows and achieving 75% reduction in build time." },
-            { title: "Optimized customer service efficiency through strategic Freshdesk implementation, resulting in 80% decreased contact volume and improved support team productivity." },
-            { title: "Spearheaded development of live driver location tracking feature with automated customer communications, improving delivery visibility and cutting support volume by 88%." },
-            { title: "Optimized mobile payment flow through Apple Pay integration, reducing friction in checkout process and boosting customer engagement by 10%." },
-        ],
-        companyLogo: InvygoLogo,
-        techStack: ['HTML5 & CSS3', 'JavaScript', 'TypeScript', 'React JS', 'Next JS', 'React Native', 'Node.js', 'Express.js', 'MongoDB', 'MySQL', 'Rabbit MQ', 'Apple Pay','Github', 'Bitrise', 'Jira'],
-    },
-]
+gsap.registerPlugin(ScrollTrigger);
 
-const Details = ({ title, company, year, location, results, companyLink, techStack }: {
-    title: string;
-    company: string;
-    year: string;
-    location: string;
-    results: { title: string }[];
-    companyLink: string;
-    techStack: string[];
-}) => {
-    const first = useRef(null);
-    return (
-        <li ref={first} className=' my-16 first:mt-0 last:mb-0 w-[80%] mx-auto'>
-            <LiIcon liRef={first}  />
-            <motion.div className=' '
-            initial={{ y:50 }}
-            whileInView={{ y:0 }}
-            transition={{ duration: 0.5, type: 'tween' }}
-            >
-                <h3 className=' capitalize font-bold md:text-xl font-serif'>{title}&nbsp; <Link href={companyLink} target='_blank' className=' text-emerald-300'>@{company}</Link></h3>
-                <span className=' caption-top font-medium text-white/30'>{year} | {location}</span>
-                <h2 className=' font-medium text-xl text-emerald-300 mt-4'>TechStack:</h2>
-                <ul className=' font-medium w-full flex flex-row flex-wrap items-center justify-start gap-x-2'>
-                {techStack.map((item: string, index: number) => (
-                        <li key={index} className=' text-sm my-1 flex flex-row justify-start items-top text-white font-serif'><span>{'✨'}</span>{item}</li>
-                    ))}
-                </ul>
-                <h2 className=' font-medium text-xl text-emerald-300 mt-4'>Achievements:</h2>
-                <ul className=' font-medium w-full'>
-                    {results.map((result) => (
-                        <li key={result.title} className=' text-xl/2 my-2 flex flex-row justify-start items-top text-white/30'><span><StarIcon className="size-6 text-emerald-300 mr-2" /></span>{result.title}</li>
-                    ))}
-                </ul>
-            </motion.div>
-        </li>
-    )
-}
+const experiences = [
+  {
+    company: "Como (Acquired by Global Payments GPN:NYSE)",
+    role: "Software Engineer - II",
+    period: "Dec 2022 - Present",
+    location: "Dubai, United Arab Emirates",
+    logo: ComoLogo,
+    link: "https://www.comosense.com/",
+    achievements: [
+      "Reduced Next.js application page size by 88% (938 KB to 111 KB) through advanced optimizations",
+      "Enhanced user acquisition efficiency by implementing account merge feature with OTP verification",
+      "Developed multi-language support dashboard, boosting business acquisition by 20%",
+      "Achieved 100% compliance with global accessibility standards",
+      "Upgraded React Native app from 0.66.1 to 0.71.1, improving performance by 30%"
+    ],
+    skills: ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL", "Docker", "Kubernetes"]
+  },
+  {
+    company: "Invygo Tech LLC",
+    role: "Software Engineer - I",
+    period: "June 2019 - Nov 2022",
+    location: "Dubai, United Arab Emirates",
+    logo: InvygoLogo,
+    link: "https://www.invygo.com/",
+    achievements: [
+      "Engineered centralized UI component library using Storybook, achieving 75% reduction in build time",
+      "Optimized customer service efficiency through Freshdesk implementation",
+      "Spearheaded live driver location tracking feature, cutting support volume by 88%",
+      "Integrated Apple Pay for seamless mobile payments"
+    ],
+    skills: ["React Native", "JavaScript", "Node.js", "MongoDB", "Apple Pay", "Bitrise"]
+  }
+];
 
-function Experience() {
-    const targetRef = React.useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: targetRef,
-        offset: ["start end", "center start"]
-    });
+export default function Experience() {
+  const sectionRef = useRef(null);
+  const timelineRef = useRef(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Header animation
+      gsap.from(".experience-header", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".experience-header",
+          start: "top 80%",
+        }
+      });
+
+      // Timeline line animation
+      gsap.from(".timeline-line", {
+        scaleY: 0,
+        transformOrigin: "top",
+        duration: 2,
+        ease: "power3.inOut",
+        scrollTrigger: {
+          trigger: timelineRef.current,
+          start: "top 80%",
+          end: "bottom 80%",
+          scrub: 1
+        }
+      });
+
+      // Experience cards animation
+      cardRefs.current.forEach((card, index) => {
+        if (!card) return;
+
+        // Entrance animation
+        gsap.from(card, {
+          x: index % 2 === 0 ? -100 : 100,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+          }
+        });
+
+        // Hover effect
+        card.addEventListener('mouseenter', () => {
+          gsap.to(card, {
+            scale: 1.02,
+            duration: 0.3,
+            ease: "power2.out"
+          });
+        });
+
+        card.addEventListener('mouseleave', () => {
+          gsap.to(card, {
+            scale: 1,
+            duration: 0.3,
+            ease: "power2.out"
+          });
+        });
+      });
+
+      // Floating dots animation
+      gsap.to(".timeline-dot", {
+        scale: 1.2,
+        duration: 1,
+        repeat: -1,
+        yoyo: true,
+        stagger: 0.2,
+        ease: "power1.inOut"
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className=' py-16 lg:py-24' id="experience">
-     <div className=' container'>
-     <SectionHeader
-                    title='Professional Experience'
-                    subtitle='A Glimpse of My Journey So Far'
-                    description=' I have been working as a Software Engineer for over 5 years, gaining extensive experience and expertise along the way. Here’s a timeline of my professional journey.'
-                />
-     </div>
-     <div className='container relative mt-12 lg:mt-20' ref={targetRef}>
-        <motion.div style={{
-            scaleY: scrollYProgress
-        }} className=' absolute left-9 top-0 w-[4px] h-full bg-emerald-300 origin-top'/>
-        <ul className=' w-full flex flex-col items-start justify-between ml-4'>
-                {
-                    EXPERIENCE.map((exp, index) => (
-                        <Details key={index} {...exp} />
-                    ))
-                }
-        </ul>
-     </div>
-    </div>
-  )
-}
+    <section ref={sectionRef} className="section-padding relative overflow-hidden" id="experience">
+      {/* Background decoration */}
+      <div className="absolute top-20 left-0 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-0 w-[600px] h-[600px] bg-pink-500/5 rounded-full blur-3xl" />
 
-export default Experience
+      <div className="container relative z-10">
+        {/* Header */}
+        <div className="experience-header text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+            Professional <span className="gradient-text">Experience</span>
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto px-4">
+            My journey as a software engineer, creating impact through innovative solutions
+          </p>
+        </div>
+
+        {/* Timeline */}
+        <div ref={timelineRef} className="relative max-w-5xl mx-auto">
+          {/* Left timeline line */}
+          <div className="timeline-line absolute left-[30px] w-1 h-full bg-gradient-to-b from-purple-500 to-pink-500" />
+
+          {/* Experience cards */}
+          <div className="space-y-12 sm:space-y-16 md:space-y-20">
+            {experiences.map((exp, index) => (
+              <div key={index} className="relative">
+                {/* Timeline dot - positioned on the left line */}
+                <div className="timeline-dot absolute left-8 transform -translate-x-1/2 w-4 md:w-6 h-4 md:h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full shadow-lg shadow-purple-500/50 z-10" />
+
+                {/* Card */}
+                <div
+                  ref={(el) => {
+                    if (el) {
+                      cardRefs.current[index] = el;
+                    }
+                  }}
+                  className="glass-effect rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 ml-16"
+                >
+                  {/* Company header */}
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 sm:mb-6">
+                    <div className="flex items-center gap-3 sm:gap-4">
+                      <div className="w-12 sm:w-16 h-12 sm:h-16 glass-effect rounded-xl p-2 sm:p-3 flex items-center justify-center">
+                        <Image src={exp.logo} alt={exp.company} width={32} height={32} className="sm:w-10 sm:h-10" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-bold leading-tight">{exp.role}</h3>
+                        <Link 
+                          href={exp.link} 
+                          target="_blank"
+                          className="text-purple-400 hover:text-purple-300 transition-colors text-sm sm:text-base"
+                        >
+                          @{exp.company}
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Meta info */}
+                  <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-gray-400 mb-4 sm:mb-6">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-3 sm:w-4 h-3 sm:h-4" />
+                      {exp.period}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <MapPin className="w-3 sm:w-4 h-3 sm:h-4" />
+                      {exp.location}
+                    </div>
+                  </div>
+
+                  {/* Achievements */}
+                  <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
+                    {exp.achievements.slice(0, 3).map((achievement, i) => (
+                      <div key={i} className="flex items-start gap-2 sm:gap-3">
+                        <Star className="w-3 sm:w-4 h-3 sm:h-4 text-purple-400 mt-1 flex-shrink-0" />
+                        <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">{achievement}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Skills */}
+                  <div className="flex flex-wrap gap-1 sm:gap-2">
+                    {exp.skills.map((skill) => (
+                      <span 
+                        key={skill} 
+                        className="px-2 sm:px-3 py-1 bg-purple-500/10 border border-purple-500/20 rounded-full text-xs text-purple-300"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
