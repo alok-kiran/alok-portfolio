@@ -18,10 +18,36 @@ const skills = [
 ];
 
 const techStack = {
-  "Frontend": ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "React Native"],
-  "Backend": ["Node.js", "Express.js", "PostgreSQL", "MongoDB", "Redis"],
-  "Tools": ["Docker", "Kubernetes", "Jenkins", "Git", "Jira"],
-  "Cloud": ["AWS", "Google Cloud", "Firebase", "Vercel"]
+  "Frontend": [
+    { name: "React.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+    { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+    { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+    { name: "Tailwind CSS", icon: "https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" },
+    { name: "Shadcn/ui", icon: "https://ui.shadcn.com/favicon.ico" },
+    { name: "React Native", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" }
+  ],
+  "Backend": [
+    { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+    { name: "Express.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+    { name: "C#", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" },
+    { name: ".NET", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" },
+    { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+    { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+    { name: "Redis", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" }
+  ],
+  "Tools": [
+    { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+    { name: "Kubernetes", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
+    { name: "Jenkins", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" },
+    { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+    { name: "Jira", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" }
+  ],
+  "Cloud": [
+    { name: "AWS", icon: "https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" },
+    { name: "Google Cloud", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
+    { name: "Firebase", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" },
+    { name: "Vercel", icon: "https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_light_background.png" }
+  ]
 };
 
 export default function About() {
@@ -185,22 +211,76 @@ export default function About() {
         </div>
 
         {/* Tech Stack */}
-        <div ref={techRef} className="glass-effect rounded-2xl p-4 sm:p-8 md:p-12">
-          <h3 className="text-xl sm:text-2xl font-bold text-center mb-8 sm:mb-12">Tech Stack</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {Object.entries(techStack).map(([category, techs]) => (
-              <div key={category} className="tech-category">
-                <h4 className="font-semibold text-purple-400 mb-3 sm:mb-4 text-sm sm:text-base">{category}</h4>
-                <div className="space-y-2">
-                  {techs.map((tech) => (
-                    <div key={tech} className="px-3 sm:px-4 py-2 bg-white/5 rounded-lg hover:bg-white/10 transition-colors cursor-pointer text-xs sm:text-sm">
-                      {tech}
+        <div ref={techRef} className="relative">
+          <h3 className="text-xl sm:text-2xl font-bold text-center mb-8 sm:mb-12">
+            My <span className="gradient-text">Tech Arsenal</span>
+          </h3>
+          
+          <div className="grid gap-6 sm:gap-8 lg:gap-10">
+            {Object.entries(techStack).map(([category, techs], categoryIndex) => (
+              <div 
+                key={category} 
+                className="tech-category relative group"
+                style={{
+                  animationDelay: `${categoryIndex * 200}ms`,
+                }}
+              >
+                {/* Category Header */}
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg">
+                    <span className="text-white font-bold text-sm sm:text-base">
+                      {categoryIndex + 1}
+                    </span>
+                  </div>
+                  <h4 className="text-lg sm:text-xl font-bold text-white">
+                    {category}
+                  </h4>
+                  <div className="flex-1 h-px bg-gradient-to-r from-purple-500/50 to-transparent"></div>
+                </div>
+
+                {/* Tech Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
+                  {techs.map((tech, techIndex) => (
+                    <div
+                      key={tech.name}
+                      className="tech-item"
+                      style={{
+                        animationDelay: `${(categoryIndex * 200) + (techIndex * 100)}ms`,
+                      }}
+                    >
+                      {/* Content */}
+                      <div className="glass-effect rounded-xl p-3 sm:p-4 h-full flex flex-col items-center justify-center text-center">
+                        <div className="mb-2 sm:mb-3">
+                          <img 
+                            src={tech.icon} 
+                            alt={tech.name}
+                            className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 mx-auto"
+                            style={{ 
+                              filter: 'brightness(0.9) drop-shadow(0 0 10px rgba(168, 85, 247, 0.3))'
+                            }}
+                            onError={(e) => {
+                              e.currentTarget.style.display = 'none';
+                            }}
+                          />
+                        </div>
+                        <span className="text-xs sm:text-sm font-medium text-white leading-tight">
+                          {tech.name}
+                        </span>
+                      </div>
                     </div>
                   ))}
                 </div>
+
+                {/* Category Bottom Line */}
+                <div className="mt-6 h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent"></div>
               </div>
             ))}
           </div>
+
+          {/* Floating Background Elements */}
+          <div className="absolute top-10 left-10 w-20 h-20 bg-purple-500/5 rounded-full blur-xl animate-pulse"></div>
+          <div className="absolute bottom-10 right-10 w-32 h-32 bg-pink-500/5 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-blue-500/5 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '4s' }}></div>
         </div>
       </div>
     </section>
