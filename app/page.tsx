@@ -1,12 +1,13 @@
 "use client";
 import TagManager from 'react-gtm-module';
-import About from "./sections/about";
-import Contact from "./sections/contact";
-import Experience from "./sections/experience";
+import Contact from "./sections/contact-new";
+import Experience from "./sections/experience-new";
 import Footer from "./sections/footer";
-import Header from "./sections/header";
-import Hero from "./sections/heroes";
-import Projects from "./sections/projects";
+import Header from "./components/header";
+import SmoothScrollProvider from "./components/smooth-scroll-provider";
+import Hero from "./sections/heroes-new";
+import Projects from "./sections/projects-new";
+import TechArsenal from "./sections/tech-arsenal";
 //import TapeSection from "./sections/tapesection";
 import { useEffect } from 'react';
 
@@ -14,17 +15,18 @@ export default function Home() {
   useEffect(() => {
     TagManager.initialize({ gtmId: 'GTM-W22V74NS' });
   }, []);
+
   return (
-    <div >
-      <Header />
-      <Hero />
-      <Projects />
-      {/* <TapeSection /> */}
-      {/* <Testimonials /> */}
-      <Experience />
-      <About />
-      <Contact />
-      <Footer />
-    </div>
+    <SmoothScrollProvider>
+      <div className="relative">
+        <Header />
+        <Hero />
+        <Projects />
+        <TechArsenal />
+        <Experience />
+        <Contact />
+        <Footer />
+      </div>
+    </SmoothScrollProvider>
   );
 }
