@@ -11,6 +11,18 @@ import ComoLogo from '@/assets/images/como_logo.png';
 gsap.registerPlugin(ScrollTrigger);
 
 const experiences = [
+    {
+    company: "Como (Acquired by Global Payments GPN:NYSE)",
+    role: "Software Engineer - III",
+    period: "Dec 2022 - Present",
+    location: "Dubai, United Arab Emirates",
+    logo: ComoLogo,
+    link: "https://www.comosense.com/",
+    achievements: [
+      "Leading the mobile development, Review PRs, develop and deploy features",
+    ],
+    skills: ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL", "Docker", "Kubernetes"]
+  },
   {
     company: "Como (Acquired by Global Payments GPN:NYSE)",
     role: "Software Engineer - II",
