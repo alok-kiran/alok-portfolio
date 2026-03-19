@@ -1,7 +1,6 @@
 "use client";
 import React, { useRef } from "react";
 import { BackgroundBeams } from "../components/ui/background-beams";
-import { TextGenerateEffect } from "../components/ui/text-generate-effect";
 import { SpotlightButton } from "../components/ui/spotlight-button";
 import { Code2, Smartphone, Rocket, Users, Brain, Zap } from "lucide-react";
 import Link from "next/link";

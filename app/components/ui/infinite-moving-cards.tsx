@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 export const InfiniteMovingCards = ({
   items,
@@ -99,9 +100,11 @@ export const InfiniteMovingCards = ({
           >
             <blockquote>
               <div className="relative z-20 flex flex-col items-center gap-2">
-                <img
+                <Image
                   src={item.icon}
                   alt={item.name}
+                  width={48}
+                  height={48}
                   className="w-12 h-12 object-contain"
                 />
                 <span className="text-sm leading-[1.6] text-gray-400 font-normal text-center">

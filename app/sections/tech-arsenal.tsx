@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const techStack = [
@@ -77,9 +78,11 @@ export default function TechArsenal() {
                 className="flex flex-col items-center gap-3 p-3 sm:p-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-blue-400/50 transition-all duration-300 group"
               >
                 <div className="w-12 h-12 flex items-center justify-center">
-                  <img 
-                    src={tech.icon} 
+                  <Image
+                    src={tech.icon}
                     alt={tech.name}
+                    width={32}
+                    height={32}
                     className="w-8 h-8 group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>

@@ -83,9 +83,11 @@ export default function Experience() {
                     key={skill}
                     className="flex items-center gap-2 px-3 py-2 bg-purple-500/10 border border-purple-500/20 rounded-lg text-xs text-purple-300 hover:bg-purple-500/20 transition-colors"
                   >
-                    <img 
-                      src={techIcons[skill]} 
+                    <Image
+                      src={techIcons[skill]}
                       alt={skill}
+                      width={16}
+                      height={16}
                       className="w-4 h-4"
                     />
                     <span>{skill}</span>
@@ -154,9 +156,11 @@ export default function Experience() {
                     key={skill}
                     className="flex items-center gap-2 px-3 py-2 bg-purple-500/10 border border-purple-500/20 rounded-lg text-xs text-purple-300 hover:bg-purple-500/20 transition-colors"
                   >
-                    <img 
-                      src={techIcons[skill]} 
+                    <Image
+                      src={techIcons[skill]}
                       alt={skill}
+                      width={16}
+                      height={16}
                       className="w-4 h-4"
                     />
                     <span>{skill}</span>
