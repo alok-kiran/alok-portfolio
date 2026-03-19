@@ -1,7 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['graphic-master.vercel.app', 'trell-master.vercel.app'],
+        remotePatterns: [
+            { protocol: 'https', hostname: 'graphic-master.vercel.app' },
+            { protocol: 'https', hostname: 'trell-master.vercel.app' },
+            { protocol: 'https', hostname: 'cdn.jsdelivr.net' },
+            { protocol: 'https', hostname: 'www.vectorlogo.zone' },
+            { protocol: 'https', hostname: 'ui.shadcn.com' },
+            { protocol: 'https', hostname: 'assets.vercel.com' },
+        ],
     },
     webpack(config) {
         // Grab the existing rule that handles SVG imports

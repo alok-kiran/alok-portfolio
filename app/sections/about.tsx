@@ -251,11 +251,13 @@ export default function About() {
                       {/* Content */}
                       <div className="glass-effect rounded-xl p-3 sm:p-4 h-full flex flex-col items-center justify-center text-center">
                         <div className="mb-2 sm:mb-3">
-                          <img 
-                            src={tech.icon} 
+                          <Image
+                            src={tech.icon}
                             alt={tech.name}
+                            width={40}
+                            height={40}
                             className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 mx-auto"
-                            style={{ 
+                            style={{
                               filter: 'brightness(0.9) drop-shadow(0 0 10px rgba(168, 85, 247, 0.3))'
                             }}
                             onError={(e) => {
