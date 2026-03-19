@@ -13,6 +13,21 @@
     --gradient-5: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
     --gradient-6: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
     --gradient-text: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    
+    /* Color variables for Aceternity components */
+    --purple-500: #a855f7;
+    --pink-500: #ec4899;
+    --blue-500: #3b82f6;
+    --neutral-400: #9ca3af;
+    
+    /* Aurora effect variables */
+    --white: #ffffff;
+    --black: #000000;
+    --transparent: rgba(255, 255, 255, 0);
+    --blue-300: #93c5fd;
+    --blue-400: #60a5fa;
+    --indigo-300: #a5b4fc;
+    --violet-200: #ddd6fe;
   }
 
   body {
@@ -30,6 +45,47 @@
 
   .gradient-text {
     @apply bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent;
+  }
+
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll var(--animation-duration, 40s)
+      var(--animation-direction, forwards) linear infinite;
+  }
+
+  @keyframes aurora {
+    from {
+      background-position: 50% 50%, 50% 50%;
+    }
+    to {
+      background-position: 350% 50%, 350% 50%;
+    }
+  }
+
+  .animate-aurora {
+    animation: aurora 60s linear infinite;
+  }
+
+  /* Full Page Slides Styling */
+  .full-page-container {
+    height: 100vh !important;
+    overflow: hidden !important;
+  }
+
+  .slide-section {
+    height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Disable body scroll when using full page */
+  body.fp-enabled {
+    overflow: hidden !important;
   }
 
   .hero-gradient {

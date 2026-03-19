@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <Script
         id="gtm-script"
         strategy="afterInteractive"
@@ -39,7 +39,7 @@ export default function RootLayout({
       />
       <body
         className={twMerge(
-          `bg-gray-900 text-white antialiased font-sans`,
+          `bg-black dark:bg-black text-white antialiased font-sans`,
           inter.variable,
           calistoga.variable
         )}
