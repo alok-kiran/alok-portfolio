@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
-import { Inter, Manrope } from "next/font/google";
+import localFont from "next/font/local";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import { ThemeProvider } from "./components/theme-provider";
 
-const inter = Inter({
-  subsets: ["latin"],
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
   variable: "--font-sans",
+  weight: "100 900",
 });
 
-const manrope = Manrope({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-heading",
+  variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
@@ -32,7 +34,6 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"
         />
-        {/* Prevent flash of wrong theme */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -55,7 +56,7 @@ export default function RootLayout({
         }}
       />
       <body
-        className={`${inter.variable} ${manrope.variable} bg-background text-foreground font-sans antialiased overflow-x-hidden`}
+        className={`${geistMono.variable} ${jetbrainsMono.variable} bg-background text-foreground font-sans antialiased overflow-x-hidden`}
       >
         <noscript>
           <iframe

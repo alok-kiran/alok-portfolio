@@ -63,7 +63,7 @@ function SkillCard({ icon, title, description, number, className = "", children 
 export default function Skills() {
   return (
     <section id="skills" className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 technical-grid-bg pointer-events-none opacity-40" />
+      <div className="absolute inset-0 technical-grid-bg pointer-events-none" />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-obsidian/30 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-obsidian/30 to-transparent" />
 
