@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
-import { Inter, Calistoga } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
-import { twMerge } from "tailwind-merge";
 import Script from "next/script";
+import { ThemeProvider } from "./components/theme-provider";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
-const calistoga = Calistoga({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-serif",
-  weight: "400",
+  variable: "--font-heading",
 });
 
 export const metadata: Metadata = {
-  title: "Alok's Portfolio",
-  description: "Welcome to my portfolio",
+  title: "Alok Kiran | Senior Software Engineer",
+  description:
+    "Full-Stack Developer with 7+ years building scalable web & mobile apps. Specializing in React, Next.js, Node.js, and React Native.",
 };
 
 export default function RootLayout({
@@ -26,7 +26,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet"
+        />
+        {/* Prevent flash of wrong theme */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var t = localStorage.getItem('theme') || 'dark';
+                document.documentElement.classList.toggle('dark', t === 'dark');
+              })();
+            `,
+          }}
+        />
+      </head>
       <Script
         id="gtm-script"
         strategy="afterInteractive"
@@ -38,21 +55,17 @@ export default function RootLayout({
         }}
       />
       <body
-        className={twMerge(
-          `bg-black dark:bg-black text-white antialiased font-sans`,
-          inter.variable,
-          calistoga.variable
-        )}
+        className={`${inter.variable} ${manrope.variable} bg-background text-foreground font-sans antialiased overflow-x-hidden`}
       >
-          <noscript>
+        <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-W22V74NS"
             height="0"
             width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
+            style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
