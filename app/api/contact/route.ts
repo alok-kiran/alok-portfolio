@@ -4,12 +4,22 @@ import { Resend } from 'resend';
 export const dynamic = 'force-dynamic';
 
 export async function POST(request: NextRequest) {
+  // ── Env guard ──────────────────────────────────────────────────────────────
+  if (!process.env.RESEND_API_KEY) {
+    console.error('[contact] RESEND_API_KEY is not set');
+    return NextResponse.json({ error: 'Server misconfiguration: missing API key' }, { status: 500 });
+  }
+  console.log('[contact] RESEND_API_KEY present:', process.env.RESEND_API_KEY.slice(0, 6) + '…');
+
   const resend = new Resend(process.env.RESEND_API_KEY);
   try {
-    const { name, email, message } = await request.json();
+    const body = await request.json();
+    console.log('[contact] received body:', JSON.stringify({ name: body.name, email: body.email, messageLen: body.message?.length }));
+    const { name, email, message } = body;
 
     // Validate required fields
     if (!name || !email || !message) {
+      console.warn('[contact] validation failed: missing fields');
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
@@ -19,6 +29,7 @@ export async function POST(request: NextRequest) {
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
+      console.warn('[contact] validation failed: bad email format:', email);
       return NextResponse.json(
         { error: 'Invalid email format' },
         { status: 400 }
@@ -26,8 +37,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Send email using Resend
-    const data = await resend.emails.send({
-      from: `Portfolio Contact <alok@alokkiran.com>`, // Replace with your verified domain
+    console.log('[contact] calling resend.emails.send…');
+    const { data, error: resendError } = await resend.emails.send({
+      from: `Portfolio Contact <alok@alokkiran.com>`, // must be a Resend-verified domain
       to: ['alokkiran777@gmail.com'], // Your email
       subject: `New Contact Form Submission from ${name}`,
       html: `
@@ -397,17 +409,26 @@ export async function POST(request: NextRequest) {
       `,
     });
 
-    console.log(data);
+    // Resend SDK v2 returns { data, error } — always check both
+    if (resendError) {
+      console.error('[contact] resend error:', JSON.stringify(resendError));
+      return NextResponse.json(
+        { error: 'Resend rejected the request', detail: resendError },
+        { status: 502 }
+      );
+    }
+
+    console.log('[contact] email sent successfully, id:', data?.id);
 
     return NextResponse.json(
-      { message: 'Email sent successfully' },
+      { message: 'Email sent successfully', id: data?.id },
       { status: 200 }
     );
 
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('[contact] unexpected error:', error instanceof Error ? error.message : error);
     return NextResponse.json(
-      { error: 'Failed to send email' },
+      { error: 'Failed to send email', detail: error instanceof Error ? error.message : String(error) },
       { status: 500 }
     );
   }
