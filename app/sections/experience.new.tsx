@@ -1,166 +1,249 @@
 "use client";
 
-import { motion } from "framer-motion";
+import React from "react";
 
-const experiences = [
+const experience = [
   {
-    title: "Senior Software Engineer",
-    company: "Como",
-    companyNote: "Acquired by Global Payments GPN:NYSE",
-    url: "https://www.comosense.com/",
-    dates: "Dec 2022 - Present",
-    location: "Dubai, UAE",
-    isCurrent: true,
-    achievements: [
-      "Engineered 88% reduction in Next.js page sizes through aggressive code splitting and asset optimization.",
-      "Architected a multi-language dashboard system leading to 20% growth in global business footprint.",
-      "Lead integration of WhatsApp Business features, automating customer communication flows.",
+    role: "Senior Software Engineer",
+    roleNote: null,
+    org: "Como",
+    orgTag: "acquired · Global Payments (GPN:NYSE)",
+    orgUrl: "https://www.comosense.com/",
+    from: "Sep 2025",
+    to: "Present",
+    where: "Dubai, UAE",
+    current: true,
+    bullets: [
+      "Cut Next.js page bundle sizes by 88% via server-component migration, aggressive code splitting, and asset pipeline rework.",
+      "Architected a multi-language merchant dashboard supporting 15+ locales, contributing to 20% expansion in global merchant base.",
+      "Led WhatsApp Business API integration, automating high-volume customer communication flows across 12+ markets.",
     ],
-    metrics: [
-      { label: "Impact", value: "-88% Size" },
-      { label: "Growth", value: "+20% Rev" },
-    ],
-    tech: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Node.js",
-      "PostgreSQL",
-      "Docker",
-      "Kubernetes",
-    ],
+    tech: ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL", "Docker", "Kubernetes"],
   },
   {
-    title: "Software Engineer",
-    company: "Invygo Tech LLC",
-    url: "https://www.invygo.com/",
-    dates: "June 2019 - Nov 2022",
-    location: "Dubai, UAE",
-    isCurrent: false,
-    achievements: [
-      "Achieved 75% build time reduction by implementing atomic design patterns with Storybook.",
-      "Reduced support volume by 88% via implementation of high-accuracy live driver tracking systems.",
+    role: "Software Engineer",
+    roleNote: null,
+    org: "Como",
+    orgTag: "acquired · Global Payments (GPN:NYSE)",
+    orgUrl: "https://www.comosense.com/",
+    from: "Dec 2022",
+    to: "Sep 2025",
+    where: "Dubai, UAE",
+    current: false,
+    bullets: [
+      "Delivered merchant-facing loyalty features end-to-end — from design handoff to production deployment — across the core platform.",
+      "Migrated shared UI components to TypeScript strict-mode, improving type safety and reducing runtime errors across the frontend codebase.",
+      "Integrated third-party payment and analytics SDKs enabling new merchant revenue streams across MENA markets.",
+      "Established front-end performance baselines and monitoring practices that laid the groundwork for the 88% bundle-size reduction achieved post-promotion.",
     ],
-    metrics: [
-      { label: "Efficiency", value: "-75% Build" },
-      { label: "Support", value: "-88% Tickets" },
+    tech: ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL"],
+  },
+  {
+    role: "Software Engineer",
+    roleNote: null,
+    org: "Invygo Tech LLC",
+    orgTag: "car subscription · Series A",
+    orgUrl: "https://www.invygo.com/",
+    from: "Jun 2019",
+    to: "Nov 2022",
+    where: "Dubai, UAE",
+    current: false,
+    bullets: [
+      "Built and maintained the Invygo mobile app (React Native) serving thousands of car subscription customers across UAE and Saudi Arabia.",
+      "Reduced component build time by 75% by introducing atomic design patterns with a Storybook component library.",
+      "Cut support ticket volume by 88% by engineering a real-time driver tracking system with sub-second location updates.",
     ],
-    tech: [
-      "React Native",
-      "JavaScript",
-      "Node.js",
-      "MongoDB",
-    ],
+    tech: ["React Native", "JavaScript", "Node.js", "MongoDB", "Google Maps API"],
   },
 ];
 
 export default function Experience() {
   return (
-    <section id="experience" className="max-w-4xl mx-auto px-8 py-24">
-      <motion.div
-        className="mb-16 text-center"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-      >
-        <div className="flex items-center justify-center gap-3 mb-4">
-          <span className="w-8 h-px bg-obsidian" />
-          <span className="text-[11px] uppercase tracking-[0.4em] text-obsidian font-bold">
-            Career Journey
+    <section
+      id="experience"
+      className="border-b border-border"
+      style={{ padding: "64px clamp(16px,4vw,40px)" }}
+    >
+      <div className="max-w-7xl mx-auto">
+        {/* Section header */}
+        <div
+          className="flex items-baseline gap-4 mb-11"
+          style={{ borderBottom: "1px dashed var(--border)", paddingBottom: 14 }}
+        >
+          <span style={{ color: "var(--primary)", fontSize: 13, fontWeight: 700 }}>[04]</span>
+          <span style={{ fontSize: 22, fontWeight: 700, letterSpacing: "-0.01em" }}>
+            git log --career
           </span>
-          <span className="w-8 h-px bg-obsidian" />
-        </div>
-        <h2 className="font-heading text-4xl md:text-6xl font-extrabold tracking-tight">
-          Work <span className="text-obsidian">Experience</span>
-        </h2>
-      </motion.div>
-
-      <div className="relative ml-4 md:ml-8">
-        {/* Vertical line */}
-        <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-border/20" />
-
-        <div className="space-y-16">
-        {experiences.map((exp, index) => (
-          <motion.div
-            key={exp.company}
-            className="relative pl-10"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.15 }}
+          <span
+            className="ml-auto hidden sm:inline"
+            style={{ color: "var(--muted-foreground)", fontSize: 11 }}
           >
-            {/* Timeline dot — centered on the line */}
-            <div
-              className={`absolute left-0 top-1.5 w-4 h-4 rounded-full -translate-x-[calc(50%-1px)] ${
-                exp.isCurrent
-                  ? "bg-obsidian shadow-[0_0_15px_var(--obsidian-accent)]"
-                  : "bg-muted-foreground border-4 border-background"
-              }`}
-            />
+            // recent commits
+          </span>
+        </div>
 
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
-              <h3 className="text-2xl font-bold font-heading">{exp.title}</h3>
-              <span
-                className={`font-bold text-sm px-3 py-1 rounded font-heading ${
-                  exp.isCurrent
-                    ? "text-obsidian bg-obsidian/10"
-                    : "text-muted-foreground bg-card"
-                }`}
-              >
-                {exp.dates}
-              </span>
-            </div>
-
-            <a
-              href={exp.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-foreground font-medium text-lg mb-6 block font-heading hover:text-obsidian transition-colors"
-            >
-              {exp.company}
-              {exp.companyNote && (
-                <span className="text-muted-foreground text-sm ml-2">
-                  ({exp.companyNote})
-                </span>
-              )}
-            </a>
-
-            <ul className="space-y-4 text-muted-foreground leading-relaxed">
-              {exp.achievements.map((achievement, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span
-                    className={`material-symbols-outlined text-lg mt-1 ${
-                      exp.isCurrent ? "text-obsidian" : "text-muted-foreground"
-                    }`}
-                  >
-                    check_circle
-                  </span>
-                  <span>{achievement}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="flex flex-wrap gap-3 mt-8">
-              {exp.metrics.map((metric) => (
+        <div>
+          {experience.map((e, i) => (
+            <React.Fragment key={`${e.org}-${e.role}`}>
+              {/* Promotion connector between consecutive same-company roles */}
+              {i > 0 && experience[i - 1].org === e.org && (
                 <div
-                  key={metric.label}
-                  className="px-4 py-2 bg-card rounded-xl border border-border/10"
+                  className="flex items-center gap-3"
+                  style={{ padding: "2px 0 2px 0" }}
                 >
-                  <span className="block text-[10px] uppercase text-muted-foreground mb-1 font-mono">
-                    {metric.label}
-                  </span>
+                  <div
+                    style={{
+                      width: 2,
+                      height: 28,
+                      background: "var(--primary)",
+                      flexShrink: 0,
+                      marginLeft: 1,
+                      opacity: 0.7,
+                    }}
+                  />
+                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <span
+                      style={{
+                        fontSize: 10,
+                        color: "var(--primary)",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.15em",
+                        fontWeight: 700,
+                      }}
+                    >
+                      ↑ promoted within {e.org}
+                    </span>
+                    <span style={{ fontSize: 10, color: "var(--muted-foreground)", letterSpacing: "0.1em" }}>
+                      · {experience[i - 1].from}
+                    </span>
+                  </div>
+                  <div style={{ flex: 1, height: 1, background: "var(--border)", opacity: 0.5 }} />
+                </div>
+              )}
+
+              <div
+                className="grid grid-cols-1 lg:grid-cols-[200px_1fr_160px] gap-4 lg:gap-8"
+                style={{
+                  padding: "22px 0",
+                  borderTop: i > 0 && experience[i - 1].org === e.org
+                    ? "none"
+                    : "1px solid var(--border)",
+                }}
+              >
+                {/* When */}
+                <div style={{ fontSize: 12, color: "var(--muted-foreground)" }}>
                   <span
-                    className={`font-bold ${
-                      exp.isCurrent ? "text-obsidian" : "text-foreground"
-                    }`}
+                    style={{
+                      color: "var(--foreground)",
+                      display: "block",
+                      marginBottom: 4,
+                      fontWeight: 500,
+                    }}
                   >
-                    {metric.value}
+                    {e.from} → {e.to}
+                  </span>
+                  <span style={{ color: e.current ? "var(--primary)" : "var(--muted-foreground)" }}>
+                    {e.current ? "● HEAD" : "○ tag"}
                   </span>
                 </div>
-              ))}
-            </div>
-          </motion.div>
-        ))}
+
+                {/* Main */}
+                <div>
+                  <div
+                    style={{
+                      fontSize: 18,
+                      fontWeight: 700,
+                      marginBottom: 2,
+                      lineHeight: 1.2,
+                    }}
+                  >
+                    {e.role}
+                  </div>
+                  <a
+                    href={e.orgUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      color: "var(--primary)",
+                      fontSize: 13,
+                      textDecoration: "none",
+                      display: "block",
+                      marginBottom: 14,
+                    }}
+                  >
+                    @{e.org}
+                    <span style={{ color: "var(--muted-foreground)", marginLeft: 8, fontSize: 11 }}>
+                      // {e.orgTag}
+                    </span>
+                  </a>
+
+                  <ul
+                    style={{
+                      listStyle: "none",
+                      padding: 0,
+                      margin: 0,
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: 8,
+                    }}
+                  >
+                    {e.bullets.map((b, bi) => (
+                      <li
+                        key={bi}
+                        style={{
+                          display: "grid",
+                          gridTemplateColumns: "18px 1fr",
+                          color: "var(--muted-foreground)",
+                          fontSize: 12.5,
+                          lineHeight: 1.65,
+                        }}
+                      >
+                        <span style={{ color: "var(--primary)" }}>→</span>
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div
+                    className="flex flex-wrap gap-2 mt-4"
+                    style={{
+                      fontSize: 10,
+                      color: "var(--muted-foreground)",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.12em",
+                    }}
+                  >
+                    {e.tech.map((t) => (
+                      <span
+                        key={t}
+                        style={{ padding: "2px 6px", border: "1px solid var(--border)" }}
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Side */}
+                <div
+                  className="hidden lg:block"
+                  style={{
+                    fontSize: 10,
+                    color: "var(--muted-foreground)",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.18em",
+                    textAlign: "right",
+                  }}
+                >
+                  <div>{e.where}</div>
+                  <div style={{ marginTop: 8, opacity: 0.5 }}>
+                    commit · {(e.from + e.to).replace(/\W/g, "").slice(0, 7).toLowerCase()}
+                  </div>
+                </div>
+              </div>
+            </React.Fragment>
+          ))}
+          <div style={{ borderTop: "1px solid var(--border)" }} />
         </div>
       </div>
     </section>

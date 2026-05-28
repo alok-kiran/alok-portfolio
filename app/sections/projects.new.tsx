@@ -1,128 +1,459 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
 import Image from "next/image";
-import darkSaasLandingPage from "@/assets/images/dark-saas-landing-page.png";
-import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
+import freshcheckImg from "@/assets/images/freshcheck.jpg";
+import pixhaulImg from "@/assets/images/pixhaul.jpg";
 
-const projects = [
+type Metric = { v: string; l: string };
+type Link = { label: string; href: string };
+
+interface Project {
+  slug: string;
+  name: string;
+  year: string;
+  status: string;
+  platform: string;
+  tagline: string;
+  problem: string;
+  what: string;
+  metrics: Metric[];
+  tech: string[];
+  links: Link[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  image: any;
+  imageAlt: string;
+}
+
+const projects: Project[] = [
   {
-    id: 1,
-    title: "Graphic Design SaaS Tool",
-    company: "Design Sphere",
-    description:
-      "A Canva-like SaaS platform with drag-and-drop design features for shapes, images, and text.",
-    image: darkSaasLandingPage,
-    tech: ["Next.js", "React", "Tailwind CSS", "Node.js", "PostgreSQL"],
-    liveUrl: "https://graphic-master.vercel.app/",
-    githubUrl: "https://github.com/alok-kiran",
-    highlights: [
-      "Intuitive drag-and-drop interface",
-      "Google and GitHub authentication",
-      "Real-time collaboration features",
-      "Professional design templates",
+    slug: "01_freshcheck",
+    name: "FreshCheck AI",
+    year: "2025",
+    status: "live",
+    platform: "iOS · Android",
+    tagline: "Stop throwing money in the trash.",
+    problem:
+      "30% of groceries go uneaten. The average household loses ~$1,500/year to expired food — because manual tracking takes too long and nobody sustains it past week one.",
+    what:
+      "Solo-built an AI-powered mobile app that photographs groceries, reads expiry dates across 12 date formats, and sends a three-tier reminder before anything spoils. Includes AI recipe suggestions for at-risk ingredients, a savings dashboard tracking both monetary and CO₂ impact, and barcode + receipt scanning. Shipped design, code, App Store, and Google Play — alone.",
+    metrics: [
+      { v: "46+", l: "live users" },
+      { v: "1,200+", l: "items recognised" },
+      { v: "$1,500", l: "avg annual savings" },
+      { v: "6×", l: "faster than manual" },
     ],
-    techColor: "text-obsidian",
+    tech: ["React Native", "Expo", "TypeScript", "Supabase", "Gemini AI", "RevenueCat"],
+    links: [
+      { label: "→ website", href: "https://www.freshcheck.shop/" },
+    ],
+    image: freshcheckImg,
+    imageAlt: "FreshCheck app interface",
   },
   {
-    id: 2,
-    title: "Project Management SaaS Tool",
-    company: "Sprintly",
-    description:
-      "A Trello-like project management platform with boards, lists, and drag-and-drop functionality.",
-    image: aiStartupLandingPage,
-    tech: ["Next.js", "React", "Tailwind CSS", "MySQL", "Node.js"],
-    liveUrl: "https://trell-master.vercel.app/",
-    githubUrl: "https://github.com/alok-kiran",
-    highlights: [
-      "Drag-and-drop task management",
-      "Real-time activity tracking",
-      "Team collaboration tools",
-      "Advanced project analytics",
+    slug: "02_pixhaul",
+    name: "PixHaul",
+    year: "2024",
+    status: "live",
+    platform: "Web",
+    tagline: "Tools should feel like tools.",
+    problem:
+      "Every online utility demands sign-ups, slaps on watermarks, or silently uploads your files to a server. They turned single-job utilities into growth funnels — hostile by design.",
+    what:
+      "Built a suite of 11 client-side browser utilities spanning image conversion, PDF editing, QR generation, and data formatting. Every tool runs entirely in your browser — zero server uploads, no account required, no watermarks, no paywalls, no upsells. Built because I kept needing these tools and kept finding the existing options hostile.",
+    metrics: [
+      { v: "11", l: "utility tools" },
+      { v: "0", l: "sign-ups needed" },
+      { v: "100%", l: "client-side" },
+      { v: "free", l: "forever" },
     ],
-    techColor: "text-blue-400",
+    tech: ["Next.js", "TypeScript", "Web APIs", "Canvas API", "Open-source libs"],
+    links: [
+      { label: "→ launch app", href: "https://pixhaul.com/" },
+    ],
+    image: pixhaulImg,
+    imageAlt: "PixHaul browser tool suite",
   },
 ];
 
+const btnBase: React.CSSProperties = {
+  background: "none",
+  border: "1px solid var(--border)",
+  color: "var(--muted-foreground)",
+  fontSize: 11,
+  padding: "6px 14px",
+  cursor: "pointer",
+  textTransform: "uppercase",
+  letterSpacing: "0.12em",
+  fontFamily: "var(--font-mono)",
+  transition: "color 0.15s, border-color 0.15s",
+};
+
 export default function Projects() {
+  const [idx, setIdx] = useState(0);
+  const [animating, setAnimating] = useState(false);
+
+  const goTo = (next: number) => {
+    if (next === idx || animating) return;
+    setAnimating(true);
+    setTimeout(() => {
+      setIdx(next);
+      setAnimating(false);
+    }, 180);
+  };
+
+  const prev = () => goTo((idx - 1 + projects.length) % projects.length);
+  const next = () => goTo((idx + 1) % projects.length);
+
+  const p = projects[idx];
+
   return (
-    <section id="projects" className="max-w-7xl mx-auto px-8 py-24">
-      <motion.div
-        className="mb-16"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-      >
-        <div className="flex items-center gap-3 mb-4">
-          <span className="w-8 h-px bg-obsidian" />
-          <span className="text-[11px] uppercase tracking-[0.4em] text-obsidian font-bold">
-            Portfolio
+    <section
+      id="projects"
+      className="border-b border-border"
+      style={{ padding: "64px clamp(16px,4vw,40px)" }}
+    >
+      <div className="max-w-7xl mx-auto">
+        {/* Section header */}
+        <div
+          className="flex items-baseline gap-4 mb-11"
+          style={{ borderBottom: "1px dashed var(--border)", paddingBottom: 14 }}
+        >
+          <span style={{ color: "var(--primary)", fontSize: 13, fontWeight: 700 }}>[02]</span>
+          <span style={{ fontSize: 22, fontWeight: 700, letterSpacing: "-0.01em" }}>
+            live_products/
+          </span>
+          <span
+            className="ml-auto hidden sm:inline"
+            style={{ color: "var(--muted-foreground)", fontSize: 11 }}
+          >
+            // shipped · in production
           </span>
         </div>
-        <h2 className="font-heading text-4xl md:text-6xl font-extrabold tracking-tight">
-          Selected <span className="text-obsidian">Projects</span>
-        </h2>
-      </motion.div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        {projects.map((project, index) => (
-          <motion.div
-            key={project.id}
-            className="group"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.15 }}
+        {/* Carousel card */}
+        <div style={{ border: "1px solid var(--border)", background: "var(--card)" }}>
+
+          {/* Top bar */}
+          <div
+            className="flex items-center justify-between"
+            style={{
+              borderBottom: "1px solid var(--border)",
+              padding: "10px clamp(14px,2vw,22px)",
+            }}
           >
-            <div className="relative overflow-hidden rounded-xl aspect-video mb-6 bg-card">
+            <span
+              style={{
+                fontSize: 10,
+                color: "var(--muted-foreground)",
+                textTransform: "uppercase",
+                letterSpacing: "0.18em",
+              }}
+            >
+              ./{p.slug}
+            </span>
+            <div className="flex items-center gap-4">
+              <span
+                style={{
+                  fontSize: 10,
+                  color: "var(--muted-foreground)",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.15em",
+                }}
+              >
+                {p.platform}
+              </span>
+              <span
+                style={{
+                  fontSize: 10,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.15em",
+                  color: "var(--foreground)",
+                }}
+              >
+                <span style={{ color: "var(--primary)" }}>●</span> {p.status} · {p.year}
+              </span>
+            </div>
+          </div>
+
+          {/* Main content — image + details */}
+          <div
+            className="grid grid-cols-1 lg:grid-cols-[5fr_7fr]"
+            style={{
+              opacity: animating ? 0 : 1,
+              transition: "opacity 180ms ease",
+            }}
+          >
+            {/* Image panel */}
+            <div
+              className="relative overflow-hidden"
+              style={{
+                borderRight: "1px solid var(--border)",
+                minHeight: "clamp(220px,30vw,380px)",
+              }}
+            >
               <Image
-                src={project.image}
-                alt={project.title}
+                src={p.image}
+                alt={p.imageAlt}
                 fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width:1024px) 100vw, 42vw"
+                className="object-cover object-top"
+                style={{ filter: "grayscale(10%) contrast(1.05)" }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(180deg,transparent 40%,rgba(10,10,10,0.6) 100%)",
+                }}
+              />
             </div>
 
-            <h3 className="text-2xl font-bold mb-2 font-heading">
-              {project.title}
-            </h3>
-            <p className="text-muted-foreground mb-6 leading-relaxed">
-              {project.description}
-            </p>
+            {/* Detail panel */}
+            <div style={{ padding: "clamp(20px,3vw,40px)" }}>
+              <h3
+                style={{
+                  fontSize: "clamp(22px,2.5vw,30px)",
+                  fontWeight: 700,
+                  marginTop: 0,
+                  marginBottom: 4,
+                  lineHeight: 1.1,
+                }}
+              >
+                {p.name}
+              </h3>
+              <p
+                style={{
+                  color: "var(--primary)",
+                  fontSize: 14,
+                  fontWeight: 600,
+                  margin: "0 0 24px",
+                  letterSpacing: "-0.01em",
+                }}
+              >
+                &ldquo;{p.tagline}&rdquo;
+              </p>
 
-            <div className="flex flex-wrap gap-2 mb-8">
-              {project.tech.map((t) => (
-                <span
-                  key={t}
-                  className={`text-[10px] uppercase font-bold tracking-widest bg-card px-3 py-1 rounded ${project.techColor}`}
+              {/* Problem */}
+              <div style={{ marginBottom: 22 }}>
+                <div
+                  style={{
+                    fontSize: 9,
+                    color: "var(--muted-foreground)",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.2em",
+                    marginBottom: 8,
+                  }}
                 >
-                  {t}
-                </span>
+                  // the problem
+                </div>
+                <p
+                  style={{
+                    fontSize: 12.5,
+                    color: "var(--muted-foreground)",
+                    lineHeight: 1.7,
+                    margin: 0,
+                  }}
+                >
+                  {p.problem}
+                </p>
+              </div>
+
+              {/* Metrics */}
+              <div
+                className="grid grid-cols-4"
+                style={{
+                  border: "1px solid var(--border)",
+                  background: "var(--border)",
+                  gap: 1,
+                  marginBottom: 22,
+                }}
+              >
+                {p.metrics.map((m) => (
+                  <div
+                    key={m.l}
+                    style={{
+                      background: "var(--background)",
+                      padding: "10px 8px",
+                      textAlign: "center",
+                    }}
+                  >
+                    <div
+                      style={{
+                        fontSize: "clamp(15px,1.8vw,20px)",
+                        fontWeight: 700,
+                        color: "var(--primary)",
+                        lineHeight: 1,
+                        marginBottom: 5,
+                      }}
+                    >
+                      {m.v}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: 9,
+                        color: "var(--muted-foreground)",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.1em",
+                        lineHeight: 1.3,
+                      }}
+                    >
+                      {m.l}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* What I built */}
+              <div style={{ marginBottom: 20 }}>
+                <div
+                  style={{
+                    fontSize: 9,
+                    color: "var(--muted-foreground)",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.2em",
+                    marginBottom: 8,
+                  }}
+                >
+                  // what i built
+                </div>
+                <p
+                  style={{
+                    fontSize: 12.5,
+                    color: "var(--muted-foreground)",
+                    lineHeight: 1.7,
+                    margin: 0,
+                  }}
+                >
+                  {p.what}
+                </p>
+              </div>
+
+              {/* Tech chips */}
+              <div
+                className="flex flex-wrap gap-2"
+                style={{ marginBottom: 20 }}
+              >
+                {p.tech.map((t) => (
+                  <span
+                    key={t}
+                    style={{
+                      fontSize: 9,
+                      color: "var(--muted-foreground)",
+                      border: "1px solid var(--border)",
+                      padding: "2px 8px",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.12em",
+                    }}
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+              {/* Links */}
+              <div className="flex flex-wrap gap-4">
+                {p.links.map((l) => (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:opacity-70 transition-opacity"
+                    style={{
+                      color: "var(--primary)",
+                      fontSize: 12,
+                      textDecoration: "none",
+                      fontWeight: 700,
+                      letterSpacing: "0.06em",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    {l.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Navigation bar */}
+          <div
+            className="flex items-center justify-between"
+            style={{
+              borderTop: "1px solid var(--border)",
+              padding: "12px clamp(14px,2vw,22px)",
+            }}
+          >
+            <button
+              onClick={prev}
+              style={btnBase}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.color =
+                  "var(--foreground)";
+                (e.currentTarget as HTMLButtonElement).style.borderColor =
+                  "var(--foreground)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.color =
+                  "var(--muted-foreground)";
+                (e.currentTarget as HTMLButtonElement).style.borderColor =
+                  "var(--border)";
+              }}
+            >
+              ← prev
+            </button>
+
+            {/* Dot indicators */}
+            <div className="flex items-center gap-2">
+              {projects.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => goTo(i)}
+                  aria-label={`Go to project ${i + 1}`}
+                  style={{
+                    width: i === idx ? 28 : 8,
+                    height: 2,
+                    background:
+                      i === idx ? "var(--primary)" : "var(--border)",
+                    border: "none",
+                    cursor: "pointer",
+                    padding: 0,
+                    transition: "width 0.25s ease, background 0.2s ease",
+                  }}
+                />
               ))}
+              <span
+                style={{
+                  fontSize: 10,
+                  color: "var(--muted-foreground)",
+                  marginLeft: 10,
+                  letterSpacing: "0.12em",
+                }}
+              >
+                0{idx + 1}&nbsp;/&nbsp;0{projects.length}
+              </span>
             </div>
 
-            <div className="flex gap-4">
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-foreground text-background px-6 py-2 rounded-lg font-heading font-bold text-sm hover:opacity-90 transition-all"
-              >
-                Live Demo
-              </a>
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass-card px-6 py-2 rounded-lg font-heading font-bold text-sm text-foreground hover:bg-accent transition-all"
-              >
-                View Code
-              </a>
-            </div>
-          </motion.div>
-        ))}
+            <button
+              onClick={next}
+              style={btnBase}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.color =
+                  "var(--foreground)";
+                (e.currentTarget as HTMLButtonElement).style.borderColor =
+                  "var(--foreground)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.color =
+                  "var(--muted-foreground)";
+                (e.currentTarget as HTMLButtonElement).style.borderColor =
+                  "var(--border)";
+              }}
+            >
+              next →
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );

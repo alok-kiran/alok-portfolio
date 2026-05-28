@@ -1,90 +1,232 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
-import AlokImage from "@/assets/images/alok.png";
-
-const floatingBadges = [
-  { label: "React", position: "-top-4 -right-4", border: "border-obsidian/30" },
-  { label: "Next.js", position: "top-1/2 -right-8", border: "border-blue-400/30" },
-  { label: "React Native", position: "bottom-4 -left-4", border: "border-purple-400/30" },
-  { label: "Node.js", position: "-bottom-4 right-1/4", border: "border-green-400/30" },
+const metrics = [
+  { v: "7+",   l: "Years shipping" },
+  { v: "−88%", l: "Bundle size cut" },
+  { v: "+20%", l: "Revenue lift" },
+  { v: "46",   l: "App users live" },
 ];
+
+const ASCII_BOX = `┌─────────────────────────────┐
+│ uptime         07 yrs       │
+│ deploys/wk     ~12          │
+│ favorite tool  next.js      │
+│ favorite db    postgres     │
+│ allergies      n+1 queries  │
+└─────────────────────────────┘`;
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="max-w-7xl mx-auto px-8 py-20 flex flex-col-reverse lg:flex-row items-center gap-20 min-h-[90vh]"
+      className="border-b border-border"
+      style={{ padding: "clamp(40px,6vw,72px) clamp(16px,4vw,40px) clamp(32px,4vw,56px)" }}
     >
-      <motion.div
-        className="flex-1 space-y-8 text-left"
-        initial={{ opacity: 0, x: -40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        <h1 className="font-heading text-5xl md:text-7xl font-extrabold leading-tight tracking-tighter gradient-text">
-          Computer Science Engineer &amp; Full-Stack Developer
-        </h1>
-        <p className="text-muted-foreground text-lg md:text-xl max-w-2xl font-light leading-relaxed">
-          7+ years building scalable web &amp; mobile apps · IIT Ropar.
-          Specializing in high-performance architectures and seamless user
-          experiences.
-        </p>
-        <div className="flex flex-wrap gap-4 pt-4">
-          <a
-            href="#projects"
-            className="bg-primary text-primary-foreground px-8 py-4 rounded-xl font-heading font-bold flex items-center gap-2 hover:bg-obsidian hover:text-white transition-colors"
-          >
-            View My Work
-            <span className="material-symbols-outlined text-sm">
-              arrow_outward
-            </span>
-          </a>
-          <a
-            href="#contact"
-            className="glass-card px-8 py-4 rounded-xl font-heading font-bold text-foreground hover:bg-accent/60 transition-colors"
-          >
-            Get In Touch
-          </a>
-        </div>
-      </motion.div>
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-16 items-start">
 
-      <motion.div
-        className="relative w-64 h-64 md:w-96 md:h-96 shrink-0"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-      >
-        <div className="absolute inset-0 bg-obsidian/20 blur-3xl rounded-full" />
-        <div className="absolute -inset-1 bg-gradient-to-tr from-obsidian to-blue-500 rounded-full opacity-30 animate-pulse" />
-        <div className="relative w-full h-full rounded-full border-4 border-border/20 overflow-hidden">
-          <Image
-            src={AlokImage}
-            alt="Alok Kiran"
-            fill
-            className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
-            sizes="(max-width: 768px) 256px, 384px"
-            priority
-          />
-        </div>
+          {/* ── LEFT ── */}
+          <div>
+            <div
+              style={{
+                fontSize: 11,
+                color: "var(--muted-foreground)",
+                textTransform: "uppercase",
+                letterSpacing: "0.2em",
+                marginBottom: 18,
+              }}
+            >
+              $ whoami
+              <span className="cursor-blink" style={{ color: "var(--primary)" }} />
+            </div>
 
-        {floatingBadges.map((badge) => (
-          <motion.div
-            key={badge.label}
-            className={`absolute ${badge.position} glass-card px-4 py-2 rounded-full text-xs font-bold border ${badge.border} hidden md:block`}
-            animate={{ y: [0, -8, 0] }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: Math.random() * 2,
-            }}
-          >
-            {badge.label}
-          </motion.div>
-        ))}
-      </motion.div>
+            <h1
+              style={{
+                fontWeight: 700,
+                fontSize: "clamp(36px,5vw,64px)",
+                lineHeight: 1.05,
+                letterSpacing: "-0.03em",
+                color: "var(--foreground)",
+                margin: 0,
+              }}
+            >
+              Alok Kiran
+              <br />
+              <span style={{ color: "var(--muted-foreground)" }}>// </span>
+              <span style={{ color: "var(--primary)" }}>full_stack.engineer()</span>
+            </h1>
+
+            <div
+              style={{
+                marginTop: 28,
+                color: "var(--muted-foreground)",
+                fontSize: 13.5,
+                lineHeight: 1.8,
+                maxWidth: "56ch",
+              }}
+            >
+              <div>
+                <span style={{ color: "var(--foreground)", fontWeight: 500 }}>const role</span>
+                {" = "}
+                <span style={{ color: "var(--primary)" }}>&quot;sr-software-engineer&quot;</span>;
+              </div>
+              <div>
+                <span style={{ color: "var(--foreground)", fontWeight: 500 }}>const yoe</span>
+                {"  = "}
+                <span style={{ color: "var(--primary)" }}>7</span>;
+              </div>
+              <div style={{ marginBottom: 14 }}>
+                <span style={{ color: "var(--foreground)", fontWeight: 500 }}>const stack</span>
+                {" = ["}
+                <span style={{ color: "var(--primary)" }}>&quot;typescript&quot;</span>
+                {", "}
+                <span style={{ color: "var(--primary)" }}>&quot;react&quot;</span>
+                {", "}
+                <span style={{ color: "var(--primary)" }}>&quot;next&quot;</span>
+                {", "}
+                <span style={{ color: "var(--primary)" }}>&quot;llms&quot;</span>
+                {"];"}
+              </div>
+              <p style={{ margin: 0 }}>
+                I build production-grade products end-to-end — from React and Next.js web apps to
+                React Native mobile experiences and LLM-powered tools. Shipping at scale across
+                Dubai-based startups and Fortune-500 payment infrastructure.
+              </p>
+            </div>
+
+            <div
+              className="flex flex-wrap gap-5 mt-7"
+              style={{
+                fontSize: 11,
+                color: "var(--muted-foreground)",
+                textTransform: "uppercase",
+                letterSpacing: "0.15em",
+              }}
+            >
+              <span>
+                <span style={{ color: "var(--primary)", fontWeight: 600 }}>Dubai, UAE</span> · UTC+4
+              </span>
+              <span>
+                <span style={{ color: "var(--primary)", fontWeight: 600 }}>IIT</span> Ropar CS &apos;19
+              </span>
+              <span>
+                <span style={{ color: "var(--primary)", fontWeight: 600 }}>status</span>: consulting-welcome
+              </span>
+            </div>
+
+            <div className="flex flex-wrap gap-3 mt-8">
+              <a
+                href="#projects"
+                style={{
+                  background: "var(--primary)",
+                  color: "var(--background)",
+                  padding: "10px 22px",
+                  fontSize: 12,
+                  fontWeight: 700,
+                  textDecoration: "none",
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  display: "inline-block",
+                }}
+              >
+                ./view_work ↗
+              </a>
+              <a
+                href="#contact"
+                style={{
+                  border: "1px solid var(--border)",
+                  color: "var(--muted-foreground)",
+                  padding: "10px 22px",
+                  fontSize: 12,
+                  fontWeight: 700,
+                  textDecoration: "none",
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  display: "inline-block",
+                }}
+              >
+                ./contact
+              </a>
+            </div>
+          </div>
+
+          {/* ── RIGHT ── */}
+          <div className="flex flex-col gap-3">
+            {/* ASCII system status */}
+            <div
+              style={{
+                background: "var(--card)",
+                border: "1px solid var(--border)",
+                padding: 18,
+              }}
+            >
+              <div
+                className="flex justify-between"
+                style={{
+                  fontSize: 10,
+                  color: "var(--muted-foreground)",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.18em",
+                  marginBottom: 14,
+                }}
+              >
+                <span>system.status</span>
+                <span style={{ color: "var(--primary)" }}>● running</span>
+              </div>
+              <pre
+                style={{
+                  fontSize: 11,
+                  color: "var(--muted-foreground)",
+                  whiteSpace: "pre",
+                  lineHeight: 1.5,
+                  fontFamily: "var(--font-mono)",
+                  margin: 0,
+                  overflow: "hidden",
+                }}
+              >
+                {ASCII_BOX}
+              </pre>
+            </div>
+
+            {/* Stats 2×2 */}
+            <div className="grid grid-cols-2 gap-2">
+              {metrics.map((m) => (
+                <div
+                  key={m.l}
+                  style={{
+                    padding: "14px 16px",
+                    border: "1px solid var(--border)",
+                    background: "var(--card)",
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: 28,
+                      color: "var(--primary)",
+                      fontWeight: 700,
+                      lineHeight: 1,
+                    }}
+                  >
+                    {m.v}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: 10,
+                      color: "var(--muted-foreground)",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.15em",
+                      marginTop: 8,
+                    }}
+                  >
+                    {m.l}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
   );
 }

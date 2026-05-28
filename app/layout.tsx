@@ -13,13 +13,14 @@ const geistMono = localFont({
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
-  title: "Alok Kiran | Senior Software Engineer",
+  title: "Alok Kiran | Senior Full-Stack Engineer — React, Next.js, React Native & AI",
   description:
-    "Full-Stack Developer with 7+ years building scalable web & mobile apps. Specializing in React, Next.js, Node.js, and React Native.",
+    "Senior Full-Stack Engineer based in Dubai with 7+ years building scalable web apps, cross-platform mobile experiences, and AI-powered products. React, Next.js, React Native, Node.js, AWS, LLM integrations. IIT Ropar CS.",
 };
 
 export default function RootLayout({
@@ -28,21 +29,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark">
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                var t = localStorage.getItem('theme') || 'dark';
-                document.documentElement.classList.toggle('dark', t === 'dark');
-              })();
-            `,
-          }}
         />
       </head>
       <Script

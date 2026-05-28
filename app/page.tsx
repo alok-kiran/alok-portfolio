@@ -3,9 +3,8 @@
 import TagManager from "react-gtm-module";
 import Navigation from "./components/navigation";
 import Hero from "./sections/hero";
-import Skills from "./sections/skills";
 import Projects from "./sections/projects.new";
-import TechMarquee from "./sections/tech-marquee";
+import Skills from "./sections/skills";
 import Experience from "./sections/experience.new";
 import Contact from "./sections/contact.new";
 import Footer from "./sections/footer.new";
@@ -17,13 +16,12 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="terminal-grid-bg min-h-screen">
       <Navigation />
-      <main className="pt-24 space-y-0">
+      <main>
         <Hero />
-        <Skills />
         <Projects />
-        <TechMarquee />
+        <Skills />
         <Experience />
         <Contact />
       </main>
