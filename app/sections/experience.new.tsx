@@ -5,55 +5,60 @@ import React from "react";
 const experience = [
   {
     role: "Senior Software Engineer",
-    roleNote: null,
     org: "Como",
-    orgTag: "acquired · Global Payments (GPN:NYSE)",
+    orgTag: "loyalty SaaS · acquired by Global Payments (NYSE: GPN)",
     orgUrl: "https://www.comosense.com/",
     from: "Sep 2025",
     to: "Present",
     where: "Dubai, UAE",
     current: true,
     bullets: [
-      "Cut Next.js page bundle sizes by 88% via server-component migration, aggressive code splitting, and asset pipeline rework.",
-      "Architected a multi-language merchant dashboard supporting 15+ locales, contributing to 20% expansion in global merchant base.",
-      "Led WhatsApp Business API integration, automating high-volume customer communication flows across 12+ markets.",
+      "Sole ownership of the React Native mobile app end-to-end — requirement gathering, architecture decisions, solutioning for junior engineers, code review, and production deployments.",
+      "Optimised per-page bundle sizes across the customer portal, cutting average page weight by ~55% and improving LCP across all major routes.",
+      "Upgraded the customer portal from Next.js 13 → 15 (App Router + Turbopack), reducing cold build time by ~40% and setting a maintainable baseline for the team.",
+      "Architected a multi-tenant WhatsApp campaign service in C# via Unifonic — supports OTP delivery, image campaigns, and promotional offers with deep links across 12+ business accounts.",
+      "Built a C# integration layer exposing Como's loyalty engine to third-party platforms — partner apps can query user points, credits, purchases, and gifts via API without onboarding to the main product, opening a new B2B revenue channel for Como.",
     ],
-    tech: ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL", "Docker", "Kubernetes"],
+    tech: ["React Native", "Next.js 15", "TypeScript", "C# / .NET", "Unifonic", "Docker", "Kubernetes"],
   },
   {
     role: "Software Engineer",
-    roleNote: null,
     org: "Como",
-    orgTag: "acquired · Global Payments (GPN:NYSE)",
+    orgTag: "loyalty SaaS · acquired by Global Payments (NYSE: GPN)",
     orgUrl: "https://www.comosense.com/",
     from: "Dec 2022",
     to: "Sep 2025",
     where: "Dubai, UAE",
     current: false,
     bullets: [
-      "Delivered merchant-facing loyalty features end-to-end — from design handoff to production deployment — across the core platform.",
-      "Migrated shared UI components to TypeScript strict-mode, improving type safety and reducing runtime errors across the frontend codebase.",
-      "Integrated third-party payment and analytics SDKs enabling new merchant revenue streams across MENA markets.",
-      "Established front-end performance baselines and monitoring practices that laid the groundwork for the 88% bundle-size reduction achieved post-promotion.",
+      "Upgraded React Native from 0.66 → 0.77 — migrated entire codebase from class to functional components, eliminating lifecycle-related bug classes and unblocking the full modern hooks ecosystem.",
+      "Introduced React Hook Form across the mobile app, cutting form boilerplate by ~60% and halving the time to ship new form screens.",
+      "Added i18n to the customer portal (web) via i18next with server-fetched translation keys — eliminated app store resubmissions for copy changes and enabled same-day text updates across 5+ locales.",
+      "Built the merchant onboarding platform from scratch (Next.js + Tailwind + C#) — reduced business setup time from days to under an hour.",
+      "Re-architected the mobile catalog to support unlimited nesting depth, replacing a fixed 2-level structure — unblocked restaurant and retail clients with complex multi-tier menu hierarchies.",
+      "Implemented push notifications with deep linking from scratch, enabling campaigns to route users directly to deeply nested app screens — increased 7-day reactivation rate by ~25%.",
     ],
-    tech: ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL"],
+    tech: ["React Native", "Next.js", "TypeScript", "i18next", "React Hook Form", "Tailwind CSS", "C# / .NET"],
   },
   {
     role: "Software Engineer",
-    roleNote: null,
     org: "Invygo Tech LLC",
-    orgTag: "car subscription · Series A",
+    orgTag: "car subscription · Series A · UAE & KSA",
     orgUrl: "https://www.invygo.com/",
     from: "Jun 2019",
     to: "Nov 2022",
     where: "Dubai, UAE",
     current: false,
     bullets: [
-      "Built and maintained the Invygo mobile app (React Native) serving thousands of car subscription customers across UAE and Saudi Arabia.",
-      "Reduced component build time by 75% by introducing atomic design patterns with a Storybook component library.",
-      "Cut support ticket volume by 88% by engineering a real-time driver tracking system with sub-second location updates.",
+      "Co-engineered the full Invygo app rebrand from scratch in a 3-person team — redesigned architecture and UI end-to-end, shipping a smooth modern experience to the App Store and Google Play.",
+      "Built an operations dashboard giving the customer-service team a full booking lifecycle view (request → dealer accepted → in progress → return → completed) — cut average support resolution time by ~35%.",
+      "Integrated Customer.io as the CRM layer — enabled segmented drip campaigns and A/B testing across multiple channels, improving retention campaign engagement.",
+      "Integrated Freshdesk for the support team, replacing ad-hoc email tracking with structured ticketing and reducing manual triage overhead by ~30%.",
+      "Integrated ZIWO calling suite into the CS workflow, consolidating outbound call tooling and reducing per-call setup time.",
+      "Integrated Intercom live chat, adding a direct in-app support channel and reducing first-contact response time.",
+      "Built the in-app invoices and payments screen — users could view and settle subscription costs, Salik charges, and traffic fines directly in the app, eliminating the need for external payment channels.",
     ],
-    tech: ["React Native", "JavaScript", "Node.js", "MongoDB", "Google Maps API"],
+    tech: ["React Native", "TypeScript", "Node.js", "Customer.io", "Freshdesk", "ZIWO", "Intercom", "Stripe"],
   },
 ];
 
@@ -125,9 +130,10 @@ export default function Experience() {
                 className="grid grid-cols-1 lg:grid-cols-[200px_1fr_160px] gap-4 lg:gap-8"
                 style={{
                   padding: "22px 0",
-                  borderTop: i > 0 && experience[i - 1].org === e.org
-                    ? "none"
-                    : "1px solid var(--border)",
+                  borderTop:
+                    i > 0 && experience[i - 1].org === e.org
+                      ? "none"
+                      : "1px solid var(--border)",
                 }}
               >
                 {/* When */}
@@ -208,7 +214,6 @@ export default function Experience() {
                     className="flex flex-wrap gap-2 mt-4"
                     style={{
                       fontSize: 10,
-                      color: "var(--muted-foreground)",
                       textTransform: "uppercase",
                       letterSpacing: "0.12em",
                     }}
@@ -216,7 +221,12 @@ export default function Experience() {
                     {e.tech.map((t) => (
                       <span
                         key={t}
-                        style={{ padding: "2px 6px", border: "1px solid var(--border)" }}
+                        style={{
+                          padding: "3px 8px",
+                          border: "1px solid var(--primary)",
+                          color: "var(--primary)",
+                          opacity: 0.85,
+                        }}
                       >
                         {t}
                       </span>
