@@ -188,7 +188,6 @@ export default function Projects() {
             <div
               className="relative overflow-hidden"
               style={{
-                borderRight: "1px solid var(--border)",
                 minHeight: "clamp(220px,30vw,380px)",
               }}
             >
@@ -198,13 +197,22 @@ export default function Projects() {
                 fill
                 sizes="(max-width:1024px) 100vw, 42vw"
                 className="object-cover object-top"
-                style={{ filter: "grayscale(10%) contrast(1.05)" }}
+                style={{ filter: "grayscale(15%) contrast(1.02)" }}
               />
+              {/* Bottom fade */}
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
                   background:
-                    "linear-gradient(180deg,transparent 40%,rgba(10,10,10,0.6) 100%)",
+                    "linear-gradient(180deg, transparent 35%, #131313 100%)",
+                }}
+              />
+              {/* Right edge fade — bleeds into card on desktop */}
+              <div
+                className="absolute inset-0 pointer-events-none hidden lg:block"
+                style={{
+                  background:
+                    "linear-gradient(90deg, transparent 55%, #131313 100%)",
                 }}
               />
             </div>
