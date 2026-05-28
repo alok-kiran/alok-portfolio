@@ -4,40 +4,41 @@ const capabilities = [
   {
     n: "01",
     t: "Full-Stack Development",
-    d: "End-to-end product engineering across React 19, Next.js App Router, TypeScript strict-mode, and Node.js. Server components by default, real-time APIs without the latency tax.",
+    d: "End-to-end product engineering: React, Next.js App Router, TypeScript, Hono.js, shadcn/ui. REST and GraphQL APIs, server components by default, real-time where it earns its keep.",
   },
   {
     n: "02",
     t: "Mobile Engineering",
-    d: "Cross-platform iOS and Android with React Native and Expo — from design token to App Store approval. FreshCheck: design → code → deployment, solo, 46 live users.",
+    d: "Cross-platform iOS and Android with React Native and Expo — design token to App Store. Apple Pay, Stripe, push notifications, Capacitor WebViews, and payment gateway integrations shipped to production.",
   },
   {
     n: "03",
     t: "AI / LLM Engineering",
-    d: "Integrating LLMs into production: Gemini 2.5 Flash for structured output, Claude Sonnet for prompt caching, agent patterns, tool use, and multimodal pipelines.",
+    d: "Production AI across Claude, Gemini, and OpenAI: tool use, prompt caching, MCP servers, agentic workflows. Bulk generation pipelines via Bull Queue, multimodal inputs, and structured output at scale.",
   },
   {
     n: "04",
-    t: "Performance Ops",
-    d: "Delivered 88% reduction in Next.js bundle sizes via server-component migration and aggressive code splitting. Every byte and millisecond tracked.",
+    t: "Scalable Architecture",
+    d: "Microservices and event-driven systems built to grow — RabbitMQ message queues, API gateway patterns, distributed tracing. Comfortable moving between monolith and micro when the cost demands it.",
   },
   {
     n: "05",
-    t: "Scalable Architecture",
-    d: "Systems designed to grow without breaking — microservices, Docker, Kubernetes, and the discipline to avoid premature complexity until the cost demands it.",
+    t: "DevOps & CI/CD",
+    d: "Automated delivery pipelines via GitHub Actions and Jenkins. Mobile CI with Codemagic and Bitrise. React Native OTA updates via CodePush. Infrastructure as YAML — repeatable, auditable, fast.",
   },
   {
     n: "06",
     t: "Cloud & Infrastructure",
-    d: "AWS Lambda, S3, Vercel, Supabase — choosing the right managed service vs. keeping it Lambda-thin. Distributed video rendering at 15s average on AWS Lambda.",
+    d: "AWS (S3, EC2, Lambda), Supabase, Vercel — right-sized managed services vs. Lambda-thin. Containerised workloads on Docker and Kubernetes. Distributed video rendering averaging 15s on Lambda.",
   },
 ];
 
 const stack = [
-  "TypeScript",  "React",        "Next.js",     "Node.js",
-  "React Native","Expo",         "PostgreSQL",  "AWS Lambda",
-  "Supabase",    "Gemini AI",    "Claude API",  "Docker",
-  "Kubernetes",  "GraphQL",      "Tailwind CSS","Remotion",
+  "TypeScript",    "React",          "Next.js",       "Hono.js",
+  "Node.js",       "C# / .NET",      "React Native",  "Expo",
+  "PostgreSQL",    "RabbitMQ",       "AWS",           "Supabase",
+  "Docker",        "Kubernetes",     "Claude API",    "Gemini",
+  "OpenAI",        "shadcn/ui",      "Tailwind CSS",  "GitHub Actions",
 ];
 
 export default function Skills() {
@@ -65,7 +66,7 @@ export default function Skills() {
           </span>
         </div>
 
-        {/* Capabilities — gap-px grid trick for clean cell borders at any col count */}
+        {/* Capabilities grid */}
         <div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-10"
           style={{ border: "1px solid var(--border)", background: "var(--border)", gap: 1 }}
@@ -122,7 +123,7 @@ export default function Skills() {
               key={s}
               style={{
                 background: "var(--background)",
-                padding: "15px 18px",
+                padding: "13px 18px",
                 fontSize: 12,
                 color: "var(--foreground)",
                 display: "flex",

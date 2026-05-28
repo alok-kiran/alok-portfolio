@@ -176,210 +176,207 @@ export default function Projects() {
             </div>
           </div>
 
-          {/* Main content — image + details */}
+          {/* Main content — stacked: image on top, details below */}
           <div
-            className="grid grid-cols-1 lg:grid-cols-[5fr_7fr]"
             style={{
               opacity: animating ? 0 : 1,
               transition: "opacity 180ms ease",
             }}
           >
-            {/* Image panel */}
+            {/* Full-width image */}
             <div
               className="relative overflow-hidden"
               style={{
-                minHeight: "clamp(220px,30vw,380px)",
+                height: "clamp(200px, 38vw, 420px)",
+                borderBottom: "1px solid var(--border)",
               }}
             >
               <Image
                 src={p.image}
                 alt={p.imageAlt}
                 fill
-                sizes="(max-width:1024px) 100vw, 42vw"
+                sizes="100vw"
                 className="object-cover object-top"
-                style={{ filter: "grayscale(15%) contrast(1.02)" }}
+                style={{ filter: "grayscale(10%) contrast(1.02)" }}
               />
-              {/* Bottom fade */}
+              {/* Bottom fade into card */}
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
                   background:
-                    "linear-gradient(180deg, transparent 35%, #131313 100%)",
-                }}
-              />
-              {/* Right edge fade — bleeds into card on desktop */}
-              <div
-                className="absolute inset-0 pointer-events-none hidden lg:block"
-                style={{
-                  background:
-                    "linear-gradient(90deg, transparent 55%, #131313 100%)",
+                    "linear-gradient(180deg, transparent 45%, #131313 100%)",
                 }}
               />
             </div>
 
-            {/* Detail panel */}
-            <div style={{ padding: "clamp(20px,3vw,40px)" }}>
-              <h3
-                style={{
-                  fontSize: "clamp(22px,2.5vw,30px)",
-                  fontWeight: 700,
-                  marginTop: 0,
-                  marginBottom: 4,
-                  lineHeight: 1.1,
-                }}
-              >
-                {p.name}
-              </h3>
-              <p
-                style={{
-                  color: "var(--primary)",
-                  fontSize: 14,
-                  fontWeight: 600,
-                  margin: "0 0 24px",
-                  letterSpacing: "-0.01em",
-                }}
-              >
-                &ldquo;{p.tagline}&rdquo;
-              </p>
-
-              {/* Problem */}
-              <div style={{ marginBottom: 22 }}>
-                <div
+            {/* Detail panel — 2 cols on desktop */}
+            <div
+              className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 lg:gap-12"
+              style={{ padding: "clamp(20px,3vw,36px)" }}
+            >
+              {/* Left: name + tagline + problem + what I built */}
+              <div>
+                <h3
                   style={{
-                    fontSize: 9,
-                    color: "var(--muted-foreground)",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.2em",
-                    marginBottom: 8,
+                    fontSize: "clamp(22px,2.5vw,30px)",
+                    fontWeight: 700,
+                    marginTop: 0,
+                    marginBottom: 4,
+                    lineHeight: 1.1,
                   }}
                 >
-                  // the problem
-                </div>
+                  {p.name}
+                </h3>
                 <p
                   style={{
-                    fontSize: 12.5,
-                    color: "var(--muted-foreground)",
-                    lineHeight: 1.7,
-                    margin: 0,
+                    color: "var(--primary)",
+                    fontSize: 14,
+                    fontWeight: 600,
+                    margin: "0 0 22px",
+                    letterSpacing: "-0.01em",
                   }}
                 >
-                  {p.problem}
+                  &ldquo;{p.tagline}&rdquo;
                 </p>
-              </div>
 
-              {/* Metrics */}
-              <div
-                className="grid grid-cols-4"
-                style={{
-                  border: "1px solid var(--border)",
-                  background: "var(--border)",
-                  gap: 1,
-                  marginBottom: 22,
-                }}
-              >
-                {p.metrics.map((m) => (
+                {/* Problem */}
+                <div style={{ marginBottom: 20 }}>
                   <div
-                    key={m.l}
-                    style={{
-                      background: "var(--background)",
-                      padding: "10px 8px",
-                      textAlign: "center",
-                    }}
-                  >
-                    <div
-                      style={{
-                        fontSize: "clamp(15px,1.8vw,20px)",
-                        fontWeight: 700,
-                        color: "var(--primary)",
-                        lineHeight: 1,
-                        marginBottom: 5,
-                      }}
-                    >
-                      {m.v}
-                    </div>
-                    <div
-                      style={{
-                        fontSize: 9,
-                        color: "var(--muted-foreground)",
-                        textTransform: "uppercase",
-                        letterSpacing: "0.1em",
-                        lineHeight: 1.3,
-                      }}
-                    >
-                      {m.l}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* What I built */}
-              <div style={{ marginBottom: 20 }}>
-                <div
-                  style={{
-                    fontSize: 9,
-                    color: "var(--muted-foreground)",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.2em",
-                    marginBottom: 8,
-                  }}
-                >
-                  // what i built
-                </div>
-                <p
-                  style={{
-                    fontSize: 12.5,
-                    color: "var(--muted-foreground)",
-                    lineHeight: 1.7,
-                    margin: 0,
-                  }}
-                >
-                  {p.what}
-                </p>
-              </div>
-
-              {/* Tech chips */}
-              <div
-                className="flex flex-wrap gap-2"
-                style={{ marginBottom: 20 }}
-              >
-                {p.tech.map((t) => (
-                  <span
-                    key={t}
                     style={{
                       fontSize: 9,
                       color: "var(--muted-foreground)",
-                      border: "1px solid var(--border)",
-                      padding: "2px 8px",
                       textTransform: "uppercase",
-                      letterSpacing: "0.12em",
+                      letterSpacing: "0.2em",
+                      marginBottom: 8,
                     }}
                   >
-                    {t}
-                  </span>
-                ))}
+                    // the problem
+                  </div>
+                  <p
+                    style={{
+                      fontSize: 12.5,
+                      color: "var(--muted-foreground)",
+                      lineHeight: 1.7,
+                      margin: 0,
+                    }}
+                  >
+                    {p.problem}
+                  </p>
+                </div>
+
+                {/* What I built */}
+                <div>
+                  <div
+                    style={{
+                      fontSize: 9,
+                      color: "var(--muted-foreground)",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.2em",
+                      marginBottom: 8,
+                    }}
+                  >
+                    // what i built
+                  </div>
+                  <p
+                    style={{
+                      fontSize: 12.5,
+                      color: "var(--muted-foreground)",
+                      lineHeight: 1.7,
+                      margin: 0,
+                    }}
+                  >
+                    {p.what}
+                  </p>
+                </div>
               </div>
 
-              {/* Links */}
-              <div className="flex flex-wrap gap-4">
-                {p.links.map((l) => (
-                  <a
-                    key={l.href}
-                    href={l.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:opacity-70 transition-opacity"
-                    style={{
-                      color: "var(--primary)",
-                      fontSize: 12,
-                      textDecoration: "none",
-                      fontWeight: 700,
-                      letterSpacing: "0.06em",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    {l.label}
-                  </a>
-                ))}
+              {/* Right: metrics + tech + links */}
+              <div className="flex flex-col gap-6">
+                {/* Metrics 2×2 */}
+                <div
+                  className="grid grid-cols-2"
+                  style={{
+                    border: "1px solid var(--border)",
+                    background: "var(--border)",
+                    gap: 1,
+                  }}
+                >
+                  {p.metrics.map((m) => (
+                    <div
+                      key={m.l}
+                      style={{
+                        background: "var(--background)",
+                        padding: "14px 12px",
+                        textAlign: "center",
+                      }}
+                    >
+                      <div
+                        style={{
+                          fontSize: "clamp(18px,2vw,24px)",
+                          fontWeight: 700,
+                          color: "var(--primary)",
+                          lineHeight: 1,
+                          marginBottom: 6,
+                        }}
+                      >
+                        {m.v}
+                      </div>
+                      <div
+                        style={{
+                          fontSize: 9,
+                          color: "var(--muted-foreground)",
+                          textTransform: "uppercase",
+                          letterSpacing: "0.1em",
+                          lineHeight: 1.3,
+                        }}
+                      >
+                        {m.l}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Tech chips */}
+                <div className="flex flex-wrap gap-2">
+                  {p.tech.map((t) => (
+                    <span
+                      key={t}
+                      style={{
+                        fontSize: 9,
+                        color: "var(--muted-foreground)",
+                        border: "1px solid var(--border)",
+                        padding: "2px 8px",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.12em",
+                      }}
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Links */}
+                <div className="flex flex-wrap gap-4">
+                  {p.links.map((l) => (
+                    <a
+                      key={l.href}
+                      href={l.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:opacity-70 transition-opacity"
+                      style={{
+                        color: "var(--primary)",
+                        fontSize: 12,
+                        textDecoration: "none",
+                        fontWeight: 700,
+                        letterSpacing: "0.06em",
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      {l.label}
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

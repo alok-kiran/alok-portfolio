@@ -1,19 +1,32 @@
 "use client";
 
-const metrics = [
-  { v: "7+",   l: "Years shipping" },
-  { v: "−88%", l: "Bundle size cut" },
-  { v: "+20%", l: "Revenue lift" },
-  { v: "46",   l: "App users live" },
+const expertise = [
+  {
+    area: "frontend",
+    items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind", "shadcn/ui"],
+    inline: false,
+  },
+  {
+    area: "backend",
+    items: ["Node.js", "Hono.js", "C# / .NET", "PostgreSQL", "RabbitMQ", "AWS"],
+    inline: false,
+  },
+  {
+    area: "mobile",
+    items: ["React Native", "Expo", "Apple Pay", "Capacitor", "Push Notifications"],
+    inline: false,
+  },
+  {
+    area: "ai / llm",
+    items: ["Claude API", "Gemini", "OpenAI", "MCP Servers", "Tool Use", "Agentic AI"],
+    inline: false,
+  },
+  {
+    area: "devops & ci/cd",
+    items: ["GitHub Actions", "Jenkins", "Docker", "Codemagic", "Bitrise", "CodePush"],
+    inline: true,
+  },
 ];
-
-const ASCII_BOX = `┌─────────────────────────────┐
-│ uptime         07 yrs       │
-│ deploys/wk     ~12          │
-│ favorite tool  next.js      │
-│ favorite db    postgres     │
-│ allergies      n+1 queries  │
-└─────────────────────────────┘`;
 
 export default function Hero() {
   return (
@@ -68,7 +81,7 @@ export default function Hero() {
               <div>
                 <span style={{ color: "var(--foreground)", fontWeight: 500 }}>const role</span>
                 {" = "}
-                <span style={{ color: "var(--primary)" }}>&quot;sr-software-engineer&quot;</span>;
+                <span style={{ color: "var(--primary)" }}>&quot;senior-software-engineer&quot;</span>;
               </div>
               <div>
                 <span style={{ color: "var(--foreground)", fontWeight: 500 }}>const yoe</span>
@@ -150,78 +163,96 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* ── RIGHT ── */}
-          <div className="flex flex-col gap-3">
-            {/* ASCII system status */}
+          {/* ── RIGHT — expertise grid ── */}
+          <div>
             <div
               style={{
-                background: "var(--card)",
-                border: "1px solid var(--border)",
-                padding: 18,
+                fontSize: 10,
+                color: "var(--muted-foreground)",
+                textTransform: "uppercase",
+                letterSpacing: "0.2em",
+                marginBottom: 14,
               }}
             >
-              <div
-                className="flex justify-between"
-                style={{
-                  fontSize: 10,
-                  color: "var(--muted-foreground)",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.18em",
-                  marginBottom: 14,
-                }}
-              >
-                <span>system.status</span>
-                <span style={{ color: "var(--primary)" }}>● running</span>
-              </div>
-              <pre
-                style={{
-                  fontSize: 11,
-                  color: "var(--muted-foreground)",
-                  whiteSpace: "pre",
-                  lineHeight: 1.5,
-                  fontFamily: "var(--font-mono)",
-                  margin: 0,
-                  overflow: "hidden",
-                }}
-              >
-                {ASCII_BOX}
-              </pre>
+              $ ls ./expertise
             </div>
 
-            {/* Stats 2×2 */}
-            <div className="grid grid-cols-2 gap-2">
-              {metrics.map((m) => (
+            {/* 2×2 grid + full-width devops strip */}
+            <div
+              className="grid grid-cols-2"
+              style={{
+                border: "1px solid var(--border)",
+                background: "var(--border)",
+                gap: 1,
+              }}
+            >
+              {/* First 4 domains — 2×2 */}
+              {expertise.slice(0, 4).map((e) => (
                 <div
-                  key={m.l}
-                  style={{
-                    padding: "14px 16px",
-                    border: "1px solid var(--border)",
-                    background: "var(--card)",
-                  }}
+                  key={e.area}
+                  style={{ background: "var(--card)", padding: "16px 18px" }}
                 >
                   <div
                     style={{
-                      fontSize: 28,
+                      fontSize: 9,
                       color: "var(--primary)",
-                      fontWeight: 700,
-                      lineHeight: 1,
-                    }}
-                  >
-                    {m.v}
-                  </div>
-                  <div
-                    style={{
-                      fontSize: 10,
-                      color: "var(--muted-foreground)",
                       textTransform: "uppercase",
-                      letterSpacing: "0.15em",
-                      marginTop: 8,
+                      letterSpacing: "0.18em",
+                      fontWeight: 700,
+                      marginBottom: 10,
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 5,
                     }}
                   >
-                    {m.l}
+                    <span style={{ opacity: 0.5 }}>▸</span>
+                    {e.area}
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                    {e.items.map((item) => (
+                      <span
+                        key={item}
+                        style={{ fontSize: 11.5, color: "var(--muted-foreground)", lineHeight: 1 }}
+                      >
+                        {item}
+                      </span>
+                    ))}
                   </div>
                 </div>
               ))}
+
+              {/* DevOps — full-width strip */}
+              <div
+                className="col-span-2"
+                style={{ background: "var(--card)", padding: "14px 18px" }}
+              >
+                <div
+                  style={{
+                    fontSize: 9,
+                    color: "var(--primary)",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.18em",
+                    fontWeight: 700,
+                    marginBottom: 10,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 5,
+                  }}
+                >
+                  <span style={{ opacity: 0.5 }}>▸</span>
+                  {expertise[4].area}
+                </div>
+                <div className="flex flex-wrap gap-x-4 gap-y-2">
+                  {expertise[4].items.map((item) => (
+                    <span
+                      key={item}
+                      style={{ fontSize: 11.5, color: "var(--muted-foreground)", lineHeight: 1 }}
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
