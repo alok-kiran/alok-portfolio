@@ -1,0 +1,152 @@
+% ============================================================
+%  Alok Kiran — Resume
+%  ATS-optimised: single-column, no tables, standard headings
+% ============================================================
+\documentclass[11pt, letterpaper]{article}
+
+\usepackage[top=0.65in, bottom=0.65in, left=0.70in, right=0.70in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+% ── Hyperlinks ───────────────────────────────────────────────
+\hypersetup{
+  colorlinks = true,
+  urlcolor   = black,
+  linkcolor  = black,
+}
+
+% ── No page numbers ──────────────────────────────────────────
+\pagestyle{empty}
+
+% ── Section style: bold, rule underneath ─────────────────────
+\titleformat{\section}
+  {\large\bfseries\uppercase}{}{0em}{}[\vspace{-2pt}\rule{\linewidth}{0.6pt}]
+\titlespacing*{\section}{0pt}{10pt}{5pt}
+
+% ── Tighter bullet lists ──────────────────────────────────────
+\setlist[itemize]{
+  leftmargin = 1.4em,
+  itemsep    = 1.5pt,
+  parsep     = 0pt,
+  topsep     = 3pt,
+}
+
+% ── No paragraph indent ──────────────────────────────────────
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% ── Helper: job header ───────────────────────────────────────
+\newcommand{\job}[4]{%
+  \textbf{#1} \hfill \textit{#3}\\
+  \textbf{#2}\quad\textbar\quad #4
+}
+
+% ============================================================
+\begin{document}
+
+% ── Name & contact ───────────────────────────────────────────
+\begin{center}
+  {\LARGE\bfseries Alok Kiran}\\[3pt]
+  {\normalsize Senior Full-Stack \& Mobile Engineer}\\[4pt]
+  {\small
+    Dubai, UAE
+    \textbar{} +971\,551053676
+    \textbar{} \href{mailto:alokkiran777@gmail.com}{alokkiran777@gmail.com}
+    \textbar{} \href{https://linkedin.com/in/alokkiran}{linkedin.com/in/alokkiran}
+    \textbar{} \href{https://github.com/alok-kiran}{github.com/alok-kiran}
+  }
+\end{center}
+
+\vspace{4pt}
+
+% ── Summary ──────────────────────────────────────────────────
+\section{Summary}
+Senior Full-Stack \& Mobile Engineer with 7+ years of experience building scalable SaaS, AI-powered,
+and multi-tenant applications across mobile and web. Specialized in React Native, Next.js, TypeScript,
+and C\#/.NET with strong experience in system design, scalable architecture, performance optimization,
+CI/CD (Continuous Integration / Continuous Deployment), cloud infrastructure, and LLM-powered workflows. Proven track record shipping production systems
+at scale for global platforms including Como (acquired by Global Payments, NYSE: GPN).
+
+% ── Experience ───────────────────────────────────────────────
+\section{Experience}
+
+\job{Senior Software Engineer}{Como — acquired by Global Payments (NYSE: GPN)}{Sep 2025 – Present}{Dubai, UAE \textbar{} Loyalty SaaS}
+
+\begin{itemize}
+  \item Sole ownership of the React Native mobile app end-to-end — requirement gathering, architecture decisions, solutioning for junior engineers, code review, and production deployments; leading delivery across Agile sprints with Scrum ceremonies.
+  \item Optimised per-page bundle sizes across the customer portal, cutting average page weight by \textasciitilde55\% and improving LCP across all major routes.
+  \item Upgraded the customer portal from Next.js 13 to 15 (App Router + Turbopack), reducing cold build time by \textasciitilde40\% and setting a maintainable baseline for the team.
+  \item Architected a multi-tenant WhatsApp campaign service in C\# via Unifonic — supports OTP delivery, image campaigns, and promotional offers with deep links across 12+ business accounts.
+  \item Built a C\# integration layer exposing Como's loyalty engine to third-party platforms — partner apps can query user points, credits, purchases, and gifts via RESTful API without onboarding to the main product, opening a new B2B revenue channel.
+  \item Designed event-driven background job pipelines in C\# using RabbitMQ message queues for campaign dispatch and loyalty event processing — async queue workers with retry logic and response caching decoupled service dependencies and kept API latency within SLA under peak load.
+\end{itemize}
+\textit{Stack: React Native, Next.js 15, TypeScript, C\#/.NET, RabbitMQ, Unifonic, Docker, Kubernetes}
+
+\vspace{6pt}
+
+\job{Software Engineer}{Como — acquired by Global Payments (NYSE: GPN)}{Dec 2022 – Sep 2025}{Dubai, UAE \textbar{} Promoted to Senior SE, Sep 2025}
+
+\begin{itemize}
+  \item Upgraded React Native from 0.66 to 0.77 — migrated entire codebase from class to functional components, eliminating lifecycle-related bug classes and unblocking the full modern hooks ecosystem.
+  \item Introduced React Hook Form across the mobile app, cutting form boilerplate by \textasciitilde60\% and halving the time to ship new form screens.
+  \item Added i18n to the customer portal (JavaScript / Next.js web app) via i18next with server-fetched translation keys — eliminated app store resubmissions for copy changes and enabled same-day text updates across 5+ locales.
+  \item Built the merchant onboarding platform from scratch (Next.js + Tailwind + C\#) — reduced business setup time from days to under an hour.
+  \item Re-architected the mobile catalog to support unlimited nesting depth, replacing a fixed 2-level structure — unblocked restaurant and retail clients with complex multi-tier menu hierarchies.
+  \item Implemented push notifications with deep linking from scratch — increased 7-day reactivation rate by \textasciitilde25\%.
+\end{itemize}
+\textit{Stack: React Native, Next.js, TypeScript, i18next, React Hook Form, Tailwind CSS, C\#/.NET}
+
+\vspace{6pt}
+
+\job{Software Engineer}{Invygo Tech LLC}{Jun 2019 – Nov 2022}{Dubai, UAE \textbar{} Car Subscription Platform, Series A (UAE \& KSA)}
+
+\begin{itemize}
+  \item Co-engineered the full Invygo app rebrand from scratch in a 3-person team — redesigned architecture and UI end-to-end, shipping to the App Store and Google Play.
+  \item Built an operations dashboard giving the CS team a full booking lifecycle view (request $\to$ accepted $\to$ in progress $\to$ return $\to$ completed) — cut average support resolution time by \textasciitilde35\%.
+  \item Integrated Customer.io as the CRM layer — enabled segmented drip campaigns and A/B testing across multiple channels, improving retention campaign engagement.
+  \item Integrated Freshdesk for the support team, replacing ad-hoc email tracking with structured ticketing and reducing manual triage overhead by \textasciitilde30\%.
+  \item Integrated ZIWO calling suite into the CS workflow, consolidating outbound call tooling and reducing per-call setup time.
+  \item Integrated Intercom live chat, adding a direct in-app support channel and reducing first-contact response time.
+  \item Built the in-app invoices and payments screen — users could settle subscription costs, Salik charges, and traffic fines directly in the app, reducing support contacts by \textasciitilde90\%.
+\end{itemize}
+\textit{Stack: React Native, TypeScript, Node.js, Customer.io, Freshdesk, ZIWO, Intercom, Stripe}
+
+% ── Side Projects ─────────────────────────────────────────────
+\section{Side Projects}
+
+\textbf{FreshCheck AI} (2025, Solo) — AI mobile app that photographs groceries and reads expiry dates across 12 date formats, sends tiered reminders, and suggests recipes for at-risk ingredients. 46+ live users, 1,200+ items recognised. Stack: React Native, Expo, TypeScript, Supabase, Gemini AI, RevenueCat.\\
+\textit{\href{https://www.freshcheck.shop/}{freshcheck.shop} \textbar{} \href{https://apps.apple.com/in/app/freshcheck-ai/id6759404089}{App Store} \textbar{} \href{https://play.google.com/store/apps/details?id=com.alok.freshcheck}{Google Play}}
+
+\vspace{4pt}
+
+\textbf{PixHaul} (2024, Solo) — Suite of 11 client-side browser utilities (image conversion, PDF editing, QR generation). Zero server uploads, no sign-up, free forever. Stack: Next.js, TypeScript, Web APIs, Canvas API.\\
+\textit{\href{https://pixhaul.com/}{pixhaul.com}}
+
+% ── Skills ───────────────────────────────────────────────────
+\section{Skills}
+
+\textbf{Languages:} TypeScript, JavaScript, C\#\\[2pt]
+\textbf{Frontend:} React, Next.js 15, Tailwind CSS, shadcn/ui\\[2pt]
+\textbf{Mobile:} React Native, Expo, Apple Pay, Capacitor, Push Notifications, Deep Linking\\[2pt]
+\textbf{Backend:} Node.js, Hono.js, .NET / C\#, PostgreSQL, RabbitMQ, RESTful APIs, GraphQL\\[2pt]
+\textbf{Architecture:} System Design, Scalable Architecture, Microservices, Distributed Systems, Software Architecture, Technical Leadership\\[2pt]
+\textbf{AI / LLM:} Claude API, Gemini, OpenAI, MCP Servers, Tool Use, Agentic Workflows\\[2pt]
+\textbf{Testing:} Jest, Cypress, React Testing Library, Unit Testing, Integration Testing, E2E Testing\\[2pt]
+\textbf{DevOps / CI:} GitHub Actions, Jenkins, Docker, Kubernetes, Codemagic, Bitrise, CodePush\\[2pt]
+\textbf{Cloud:} AWS (S3, EC2, Lambda), Supabase, Vercel\\[2pt]
+\textbf{Methodologies:} Agile, Scrum, Code Review, Technical Mentorship
+
+% ── Education ─────────────────────────────────────────────────
+\section{Education}
+
+\textbf{B.Tech, Computer Science \& Engineering} \hfill 2015 – 2019\\
+Indian Institute of Technology (IIT), Ropar
+
+\end{document}

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alok Kiran — Resume</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: letter;
+    margin: 0.5in 0.60in;
+  }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    font-size: 10pt;
+    line-height: 1.38;
+    color: #111;
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── Header ── */
+  .header {
+    text-align: center;
+    margin-bottom: 9pt;
+  }
+  .header h1 {
+    font-size: 20pt;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 2pt;
+  }
+  .header .contact {
+    font-size: 8.5pt;
+    color: #222;
+    letter-spacing: 0.01em;
+  }
+  .header .contact a {
+    color: #111;
+    text-decoration: none;
+  }
+
+  /* ── Sections ── */
+  section {
+    margin-bottom: 7pt;
+  }
+  h2 {
+    font-size: 9.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-bottom: 0.8pt solid #111;
+    padding-bottom: 1.5pt;
+    margin-bottom: 5pt;
+  }
+
+  /* ── Summary ── */
+  .summary p {
+    font-size: 10pt;
+    line-height: 1.42;
+  }
+
+  /* ── Job entry ── */
+  .job {
+    margin-bottom: 6pt;
+  }
+  .job-title-row {
+    font-size: 10pt;
+    font-weight: 700;
+    margin-bottom: 1pt;
+  }
+  .job-dates {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 9pt;
+    color: #333;
+  }
+  .job-meta {
+    font-size: 9pt;
+    color: #333;
+    margin-bottom: 3pt;
+  }
+  .job-meta strong {
+    font-weight: 600;
+    color: #111;
+  }
+
+  /* ── Bullets ── */
+  ul {
+    padding-left: 1.1em;
+    margin-bottom: 2pt;
+  }
+  li {
+    font-size: 9.5pt;
+    line-height: 1.38;
+    margin-bottom: 1.5pt;
+    color: #1a1a1a;
+  }
+  .stack {
+    font-size: 8.5pt;
+    font-style: italic;
+    color: #333;
+    margin-top: 2pt;
+  }
+
+  /* ── Projects ── */
+  .project {
+    margin-bottom: 4pt;
+    font-size: 9.5pt;
+    line-height: 1.4;
+  }
+  .project strong {
+    font-weight: 700;
+  }
+  .project-links {
+    font-size: 8.5pt;
+    font-style: italic;
+    color: #333;
+    display: block;
+    margin-top: 1pt;
+  }
+  .project-links a {
+    color: #222;
+    text-decoration: underline;
+    text-underline-offset: 1.5pt;
+  }
+
+  /* ── Skills (plain paragraphs, ATS-safe) ── */
+  .skill-line {
+    font-size: 9.5pt;
+    line-height: 1.45;
+    color: #1a1a1a;
+  }
+  .skill-line strong {
+    font-weight: 700;
+  }
+
+  /* ── Education ── */
+  .edu-title {
+    font-weight: 700;
+    font-size: 10pt;
+  }
+  .edu-dates {
+    font-size: 9pt;
+    font-style: italic;
+    color: #333;
+  }
+  .edu-inst {
+    font-size: 9.5pt;
+    color: #333;
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <h1>Alok Kiran</h1>
+  <p style="font-size:10pt; color:#444; margin-bottom:3pt; letter-spacing:0.04em;">Senior Full-Stack &amp; Mobile Engineer</p>
+  <p class="contact">
+    Dubai, UAE &nbsp;&bull;&nbsp;
+    +971 551053676 &nbsp;&bull;&nbsp;
+    <a href="mailto:alokkiran777@gmail.com">alokkiran777@gmail.com</a> &nbsp;&bull;&nbsp;
+    <a href="https://linkedin.com/in/alokkiran">linkedin.com/in/alokkiran</a> &nbsp;&bull;&nbsp;
+    <a href="https://github.com/alok-kiran">github.com/alok-kiran</a>
+  </p>
+</div>
+
+<!-- Summary -->
+<section class="summary">
+  <h2>Summary</h2>
+  <p>Senior Full-Stack &amp; Mobile Engineer with 7+ years of experience building scalable SaaS, AI-powered, and multi-tenant applications across mobile and web. Specialized in React Native, Next.js, TypeScript, and C#/.NET with strong experience in system design, scalable architecture, performance optimization, CI/CD (Continuous Integration / Continuous Deployment), cloud infrastructure, and LLM-powered workflows. Proven track record shipping production systems at scale for global platforms including Como (acquired by Global Payments, NYSE: GPN).</p>
+</section>
+
+<!-- Experience -->
+<section>
+  <h2>Experience</h2>
+
+  <!-- Como SSE -->
+  <div class="job">
+    <div class="job-title-row">Senior Software Engineer &nbsp;<span class="job-dates">Sep 2025 - Present</span></div>
+    <div class="job-meta"><strong>Como</strong> - acquired by Global Payments (NYSE: GPN) | Dubai, UAE | Loyalty SaaS</div>
+    <ul>
+      <li>Sole ownership of the React Native mobile app end-to-end - requirement gathering, architecture decisions, solutioning for junior engineers, code review, and production deployments; leading delivery across Agile sprints with Scrum ceremonies.</li>
+      <li>Optimised per-page bundle sizes across the customer portal, cutting average page weight by approximately 55% and improving LCP across all major routes.</li>
+      <li>Upgraded the customer portal from Next.js 13 to 15 (App Router + Turbopack), reducing cold build time by approximately 40% and setting a maintainable baseline for the team.</li>
+      <li>Architected a multi-tenant WhatsApp campaign service in C# via Unifonic - supports OTP delivery, image campaigns, and promotional offers with deep links across 12+ business accounts.</li>
+      <li>Built a C# integration layer exposing Como's loyalty engine to third-party platforms - partner apps can query user points, credits, purchases, and gifts via RESTful API without onboarding to the main product, opening a new B2B revenue channel.</li>
+      <li>Designed event-driven background job pipelines in C# using RabbitMQ message queues for campaign dispatch and loyalty event processing - async queue workers with retry logic and response caching decoupled service dependencies and kept API latency within SLA under peak load.</li>
+    </ul>
+    <p class="stack">Stack: React Native, Next.js 15, TypeScript, C#/.NET, RabbitMQ, Unifonic, Docker, Kubernetes</p>
+  </div>
+
+  <!-- Como SE -->
+  <div class="job">
+    <div class="job-title-row">Software Engineer &nbsp;<span class="job-dates">Dec 2022 - Sep 2025</span></div>
+    <div class="job-meta"><strong>Como</strong> - acquired by Global Payments (NYSE: GPN) | Dubai, UAE | Promoted to Senior Software Engineer, Sep 2025</div>
+    <ul>
+      <li>Upgraded React Native from version 0.66 to 0.77 - migrated entire codebase from class to functional components, eliminating lifecycle-related bug classes and unblocking the full modern hooks ecosystem.</li>
+      <li>Introduced React Hook Form across the mobile app, cutting form boilerplate by approximately 60% and halving the time to ship new form screens.</li>
+      <li>Added i18n to the customer portal (JavaScript / Next.js web app) via i18next with server-fetched translation keys - eliminated app store resubmissions for copy changes and enabled same-day text updates across 5+ locales.</li>
+      <li>Built the merchant onboarding platform from scratch (Next.js + Tailwind CSS + C#) - reduced business setup time from days to under an hour.</li>
+      <li>Re-architected the mobile catalog to support unlimited nesting depth, replacing a fixed 2-level structure - unblocked restaurant and retail clients with complex multi-tier menu hierarchies.</li>
+      <li>Implemented push notifications with deep linking from scratch - increased 7-day reactivation rate by approximately 25%.</li>
+    </ul>
+    <p class="stack">Stack: React Native, Next.js, TypeScript, i18next, React Hook Form, Tailwind CSS, C#/.NET</p>
+  </div>
+
+  <!-- Invygo -->
+  <div class="job">
+    <div class="job-title-row">Software Engineer &nbsp;<span class="job-dates">Jun 2019 - Nov 2022</span></div>
+    <div class="job-meta"><strong>Invygo Tech LLC</strong> | Dubai, UAE | Car Subscription Platform, Series A (UAE and KSA)</div>
+    <ul>
+      <li>Co-engineered the full Invygo app rebrand from scratch in a 3-person team - redesigned architecture and UI end-to-end, shipping to the App Store and Google Play.</li>
+      <li>Built an operations dashboard giving the CS team a full booking lifecycle view (request to accepted to in progress to return to completed) - cut average support resolution time by approximately 35%.</li>
+      <li>Integrated Customer.io as the CRM layer - enabled segmented drip campaigns and A/B testing across multiple channels, improving retention campaign engagement.</li>
+      <li>Integrated Freshdesk for the support team, replacing ad-hoc email tracking with structured ticketing and reducing manual triage overhead by approximately 30%.</li>
+      <li>Integrated ZIWO calling suite into the CS workflow, consolidating outbound call tooling and reducing per-call setup time.</li>
+      <li>Integrated Intercom live chat, adding a direct in-app support channel and reducing first-contact response time.</li>
+      <li>Built the in-app invoices and payments screen - users could settle subscription costs, Salik charges, and traffic fines directly in the app, reducing support contacts by approximately 90%.</li>
+    </ul>
+    <p class="stack">Stack: React Native, TypeScript, Node.js, Customer.io, Freshdesk, ZIWO, Intercom, Stripe</p>
+  </div>
+</section>
+
+<!-- Side Projects -->
+<section>
+  <h2>Side Projects</h2>
+  <div class="project">
+    <strong>FreshCheck AI</strong> (2025, Solo) - AI mobile app that photographs groceries and reads expiry dates across 12 date formats, sends tiered reminders, and suggests recipes for at-risk ingredients. 46+ live users, 1,200+ items recognised. Stack: React Native, Expo, TypeScript, Supabase, Gemini AI, RevenueCat.
+    <span class="project-links">
+      <a href="https://www.freshcheck.shop/">freshcheck.shop</a>
+      &nbsp;&bull;&nbsp;
+      <a href="https://apps.apple.com/in/app/freshcheck-ai/id6759404089">App Store</a>
+      &nbsp;&bull;&nbsp;
+      <a href="https://play.google.com/store/apps/details?id=com.alok.freshcheck">Google Play</a>
+    </span>
+  </div>
+  <div class="project">
+    <strong>PixHaul</strong> (2024, Solo) - Suite of 11 client-side browser utilities (image conversion, PDF editing, QR generation). Zero server uploads, no sign-up, free forever. Stack: Next.js, TypeScript, Web APIs, Canvas API.
+    <span class="project-links"><a href="https://pixhaul.com/">pixhaul.com</a></span>
+  </div>
+</section>
+
+<!-- Skills — plain paragraphs, ATS-safe, no grid/table -->
+<section>
+  <h2>Skills</h2>
+  <p class="skill-line"><strong>Languages:</strong> TypeScript, JavaScript, C#</p>
+  <p class="skill-line"><strong>Frontend:</strong> React, Next.js 15, Tailwind CSS, shadcn/ui</p>
+  <p class="skill-line"><strong>Mobile:</strong> React Native, Expo, Apple Pay, Capacitor, Push Notifications, Deep Linking</p>
+  <p class="skill-line"><strong>Backend:</strong> Node.js, Hono.js, .NET / C#, PostgreSQL, RabbitMQ, RESTful APIs, GraphQL</p>
+  <p class="skill-line"><strong>Architecture:</strong> System Design, Scalable Architecture, Microservices, Distributed Systems, Software Architecture, Technical Leadership</p>
+  <p class="skill-line"><strong>AI / LLM:</strong> Claude API, Gemini, OpenAI, MCP Servers, Tool Use, Agentic Workflows</p>
+  <p class="skill-line"><strong>Testing:</strong> Jest, Cypress, React Testing Library, Unit Testing, Integration Testing, E2E Testing</p>
+  <p class="skill-line"><strong>DevOps / CI:</strong> GitHub Actions, Jenkins, Docker, Kubernetes, Codemagic, Bitrise, CodePush</p>
+  <p class="skill-line"><strong>Cloud:</strong> AWS (S3, EC2, Lambda), Supabase, Vercel</p>
+  <p class="skill-line"><strong>Methodologies:</strong> Agile, Scrum, Code Review, Technical Mentorship</p>
+</section>
+
+<!-- Education -->
+<section>
+  <h2>Education</h2>
+  <p class="edu-title">B.Tech, Computer Science &amp; Engineering &nbsp;<span class="edu-dates">2015 - 2019</span></p>
+  <p class="edu-inst">Indian Institute of Technology (IIT), Ropar</p>
+</section>
+
+</body>
+</html>
