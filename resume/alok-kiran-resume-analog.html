@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alok Kiran — Frontend Engineer Resume</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: letter;
+    margin: 0.5in 0.60in;
+  }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    font-size: 10pt;
+    line-height: 1.38;
+    color: #111;
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .header { text-align: center; margin-bottom: 9pt; }
+  .header h1 { font-size: 20pt; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 2pt; }
+  .header .subtitle { font-size: 10pt; color: #444; margin-bottom: 3pt; letter-spacing: 0.04em; }
+  .header .contact { font-size: 8.5pt; color: #222; letter-spacing: 0.01em; }
+  .header .contact a { color: #111; text-decoration: none; }
+
+  section { margin-bottom: 7pt; }
+  h2 {
+    font-size: 9.5pt; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; border-bottom: 0.8pt solid #111;
+    padding-bottom: 1.5pt; margin-bottom: 5pt;
+  }
+
+  .summary p { font-size: 10pt; line-height: 1.42; }
+
+  .job { margin-bottom: 6pt; }
+  .job-title-row { font-size: 10pt; font-weight: 700; margin-bottom: 1pt; }
+  .job-dates { font-weight: 400; font-style: italic; font-size: 9pt; color: #333; }
+  .job-meta { font-size: 9pt; color: #333; margin-bottom: 3pt; }
+  .job-meta strong { font-weight: 600; color: #111; }
+
+  ul { padding-left: 1.1em; margin-bottom: 2pt; }
+  li { font-size: 9.5pt; line-height: 1.38; margin-bottom: 1.5pt; color: #1a1a1a; }
+  .stack { font-size: 8.5pt; font-style: italic; color: #333; margin-top: 2pt; }
+
+  .project { margin-bottom: 4pt; font-size: 9.5pt; line-height: 1.4; }
+  .project strong { font-weight: 700; }
+  .project-links { font-size: 8.5pt; font-style: italic; color: #333; display: block; margin-top: 1pt; }
+  .project-links a { color: #222; text-decoration: underline; text-underline-offset: 1.5pt; }
+
+  .skill-line { font-size: 9.5pt; line-height: 1.45; color: #1a1a1a; }
+  .skill-line strong { font-weight: 700; }
+
+  .edu-title { font-weight: 700; font-size: 10pt; }
+  .edu-dates { font-size: 9pt; font-style: italic; color: #333; }
+  .edu-inst { font-size: 9.5pt; color: #333; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <h1>Alok Kiran</h1>
+  <p class="subtitle">Senior Frontend Engineer</p>
+  <p class="contact">
+    Dubai, UAE &nbsp;&bull;&nbsp;
+    +971 551053676 &nbsp;&bull;&nbsp;
+    <a href="mailto:alokkiran777@gmail.com">alokkiran777@gmail.com</a> &nbsp;&bull;&nbsp;
+    <a href="https://linkedin.com/in/alokkiran">linkedin.com/in/alokkiran</a> &nbsp;&bull;&nbsp;
+    <a href="https://github.com/alok-kiran">github.com/alok-kiran</a>
+  </p>
+</div>
+
+<!-- Summary -->
+<section class="summary">
+  <h2>Summary</h2>
+  <p>Senior Frontend Engineer with 7+ years building scalable, high-performance web and mobile interfaces. Deep expertise in React, TypeScript, Next.js, HTML, and CSS — with a strong track record in performance optimisation, responsive and mobile-first design, RESTful API integration, and shipping AI-driven, data-heavy interfaces to production. Currently at Como (acquired by Global Payments, NYSE: GPN), delivering frontend architecture across a multi-tenant SaaS platform at scale. Independently shipped FreshCheck AI, a production app combining real-time AI inference with a consumer-grade mobile interface.</p>
+</section>
+
+<!-- Experience -->
+<section>
+  <h2>Experience</h2>
+
+  <!-- Como SSE -->
+  <div class="job">
+    <div class="job-title-row">Senior Software Engineer &nbsp;<span class="job-dates">Sep 2025 - Present</span></div>
+    <div class="job-meta"><strong>Como</strong> - acquired by Global Payments (NYSE: GPN) | Dubai, UAE | Loyalty SaaS</div>
+    <ul>
+      <li>Drove React Native mobile app and Next.js customer portal frontend delivery — architecture decisions, Agile sprint planning with Scrum ceremonies, code review, and production deployments across web and mobile.</li>
+      <li>Optimised per-page bundle sizes across the Next.js customer portal — cut average page weight by approximately 55% and improved Largest Contentful Paint (LCP) across all major routes using code splitting, lazy loading, and tree shaking.</li>
+      <li>Upgraded the customer portal from Next.js 13 to 15 (App Router + Turbopack), reducing cold build time by approximately 40%, improving developer experience, and establishing a scalable frontend architecture baseline for the team.</li>
+      <li>Built responsive, data-driven campaign management interfaces in React and TypeScript — translating product and design requirements into clean, maintainable UI with cross-browser compatibility across all major browsers.</li>
+      <li>Architected deep-link routing for a multi-tenant WhatsApp campaign service — surfaces contextual UI states in-app from external triggers across 12+ business accounts, integrating asynchronous backend event streams into the frontend layer.</li>
+      <li>Integrated a C# RESTful API layer into the frontend, enabling third-party partner applications to query and display loyalty data in real time without onboarding to the main product.</li>
+    </ul>
+    <p class="stack">Stack: React, Next.js 15, TypeScript, JavaScript, HTML, CSS, Tailwind CSS, App Router, Turbopack, RESTful APIs, React Native, Docker</p>
+  </div>
+
+  <!-- Como SE -->
+  <div class="job">
+    <div class="job-title-row">Software Engineer &nbsp;<span class="job-dates">Dec 2022 - Sep 2025</span></div>
+    <div class="job-meta"><strong>Como</strong> - acquired by Global Payments (NYSE: GPN) | Dubai, UAE | Promoted to Senior Software Engineer, Sep 2025</div>
+    <ul>
+      <li>Built the merchant onboarding platform from scratch using Next.js, Tailwind CSS, and a C# backend — translated UX designs into a fully responsive, multi-step interface that reduced business setup time from days to under an hour.</li>
+      <li>Added i18n to the customer portal (JavaScript / Next.js web app) via i18next with server-fetched translation keys — built a locale-aware frontend rendering layer supporting 5+ languages, enabling same-day text updates without redeployment.</li>
+      <li>Introduced React Hook Form across all form screens, standardising validation patterns, cutting boilerplate by approximately 60%, and halving the time to ship new UI screens.</li>
+      <li>Upgraded React Native from version 0.66 to 0.77 — migrated the full codebase to functional components, resolved breaking changes across iOS and Android, and adopted the modern React hooks ecosystem across the entire UI layer.</li>
+      <li>Re-architected the product catalog UI to support unlimited nesting depth via recursive React component rendering, replacing a fixed 2-level structure — unblocked complex multi-tier menu hierarchies for restaurant and retail clients.</li>
+      <li>Implemented push notification UI and deep linking from scratch — built the frontend routing layer to land users on deeply nested app screens from external triggers, increasing 7-day reactivation rate by approximately 25%.</li>
+    </ul>
+    <p class="stack">Stack: React, Next.js, TypeScript, JavaScript, HTML, CSS, Tailwind CSS, React Hook Form, i18next, React Native, RESTful APIs, C#/.NET</p>
+  </div>
+
+  <!-- Invygo -->
+  <div class="job">
+    <div class="job-title-row">Software Engineer &nbsp;<span class="job-dates">Jun 2019 - Nov 2022</span></div>
+    <div class="job-meta"><strong>Invygo Tech LLC</strong> | Dubai, UAE | Car Subscription Platform, Series A (UAE and KSA)</div>
+    <ul>
+      <li>Co-engineered the full Invygo app UI rebrand from scratch in a 3-person team — redesigned component architecture and visual design end-to-end, delivering a mobile-first, responsive experience to App Store and Google Play.</li>
+      <li>Built a real-time operations dashboard for the customer-service team — a data-heavy React interface giving full lifecycle visibility across all active bookings (request to accepted to in progress to return to completed), cutting support resolution time by approximately 35%.</li>
+      <li>Built the in-app invoices and payments UI with Stripe API integration — designed and implemented the end-to-end payments interface on iOS and Android, reducing support contacts by approximately 90%.</li>
+      <li>Integrated Customer.io, Freshdesk, ZIWO, and Intercom into the frontend — consumed multiple RESTful APIs and asynchronous data streams to surface CRM, ticketing, calling, and live-chat tooling inside a single mobile interface.</li>
+    </ul>
+    <p class="stack">Stack: React Native, JavaScript, TypeScript, HTML, CSS, RESTful APIs, Stripe, Customer.io, Intercom, Node.js</p>
+  </div>
+</section>
+
+<!-- Projects -->
+<section>
+  <h2>Side Projects</h2>
+  <div class="project">
+    <strong>FreshCheck AI</strong> (2025, Solo) - AI-driven consumer mobile interface shipped independently to App Store and Google Play. Built on React Native (Expo) with real-time Gemini AI inference — photographs groceries, classifies 12 date formats, renders expiry timelines, and surfaces recipe recommendations for at-risk items. Integrated RevenueCat (in-app purchases) and Supabase (auth, storage). 46+ live users, 1,200+ items recognised.
+    <span class="project-links">
+      <a href="https://www.freshcheck.shop/">freshcheck.shop</a>
+      &nbsp;&bull;&nbsp;
+      <a href="https://apps.apple.com/in/app/freshcheck-ai/id6759404089">App Store</a>
+      &nbsp;&bull;&nbsp;
+      <a href="https://play.google.com/store/apps/details?id=com.alok.freshcheck">Google Play</a>
+    </span>
+  </div>
+  <div class="project">
+    <strong>PixHaul</strong> (2024, Solo) - Suite of 11 client-side browser utilities (image conversion, PDF editing, QR generation, Canvas-based image processing). Built entirely in Next.js and TypeScript using Web APIs and Canvas API — zero server uploads, no sign-up, fully responsive across desktop and mobile browsers. <span class="project-links"><a href="https://pixhaul.com/">pixhaul.com</a></span>
+  </div>
+</section>
+
+<!-- Skills -->
+<section>
+  <h2>Skills</h2>
+  <p class="skill-line"><strong>Frontend Core:</strong> JavaScript (ES2022+), TypeScript, HTML5, CSS3, React 19, Next.js 15 (App Router, SSR, SSG), Tailwind CSS, shadcn/ui</p>
+  <p class="skill-line"><strong>Performance:</strong> Bundle Optimisation, Code Splitting, Lazy Loading, Tree Shaking, LCP / Core Web Vitals, Lighthouse, Turbopack</p>
+  <p class="skill-line"><strong>UI Patterns:</strong> Responsive Design, Mobile-First, Component Architecture, Accessibility, i18n, React Hook Form, TanStack Query</p>
+  <p class="skill-line"><strong>API Integration:</strong> RESTful APIs, GraphQL, Async Data Handling, WebSockets, Fetch / Axios</p>
+  <p class="skill-line"><strong>Mobile:</strong> React Native (0.60 - 0.77), Expo (managed and bare workflow), iOS, Android, Deep Linking, Push Notifications</p>
+  <p class="skill-line"><strong>AI / LLM Interfaces:</strong> Claude API, Gemini, OpenAI, MCP Servers, Agentic Workflows, AI-driven UI integration</p>
+  <p class="skill-line"><strong>Testing:</strong> Jest, Cypress, React Testing Library, Unit Testing, Integration Testing, E2E Testing</p>
+  <p class="skill-line"><strong>DevOps / CI:</strong> Git, GitHub Actions, Vercel, Docker, Codemagic, Jenkins</p>
+  <p class="skill-line"><strong>Backend:</strong> Node.js, Hono.js, .NET / C#, PostgreSQL, RESTful API Design</p>
+  <p class="skill-line"><strong>Methodologies:</strong> Agile, Scrum, Code Review, Technical Mentorship</p>
+</section>
+
+<!-- Education -->
+<section>
+  <h2>Education</h2>
+  <p class="edu-title">B.Tech, Computer Science &amp; Engineering &nbsp;<span class="edu-dates">2015 - 2019</span></p>
+  <p class="edu-inst">Indian Institute of Technology (IIT), Ropar</p>
+</section>
+
+</body>
+</html>
